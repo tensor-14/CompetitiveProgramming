@@ -6,27 +6,27 @@ using namespace std;
 
 int lookup[MAX]; 
 
-void _init() 
+void _init()        //initialising lookup array
 { 
 	int i; 
 	for (i = 0; i < MAX; i++) 
 		lookup[i] = NIL; 
 } 
 
-int fib(int n) 
+int fib(int n)      //function to find and store fibonacci numbers
 { 
 	if (lookup[n] == NIL) 
 	{ 
 		if (n <= 1) 
-			lookup[n] = n; 
+			lookup[n] = n;      //storing unsaved value
 		else
-			lookup[n] = fib(n - 1) + fib(n - 2); 
+			lookup[n] = fib(n - 1) + fib(n - 2);        //recursicve call and storing unsaved value
 } 
 
 return lookup[n]; 
 } 
  
-int main () 
+int main() 
 { 
 	int n; 
 	_init(); 
