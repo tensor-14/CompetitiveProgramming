@@ -6,7 +6,7 @@ using namespace std;
 
 int lookup[MAX]; 
 
-void _initialize() 
+void _init() 
 { 
 	int i; 
 	for (i = 0; i < MAX; i++) 
@@ -28,8 +28,10 @@ return lookup[n];
  
 int main () 
 { 
-	int n = 40; 
-	_initialize(); 
-	cout << "Fibonacci number is " << fib(n); 
+	int n; 
+	_init(); 
+    cout<<"Enter n ";
+    cin>>n;
+	cout <<endl<< "Fibonacci number is " << fib(n)<<endl; 
 	return 0; 
 } 

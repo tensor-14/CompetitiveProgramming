@@ -1,7 +1,7 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-int nearestSmallerEqFib(int n) 
+int fib_search(int n) 
 {  
 	if (n == 0 || n == 1) 
 		return n; 
@@ -15,10 +15,10 @@ int nearestSmallerEqFib(int n)
 	return f2; 
 } 
 
-void printFibRepresntation(int n) 
+void display_fib(int n) 
 { 
 	while (n > 0) { 
-		int f = nearestSmallerEqFib(n); 
+		int f = fib_search(n); 
 		cout << f << " "; 
 		n = n - f; 
 	} 
@@ -29,6 +29,6 @@ int main()
 	int n = 30; 
 	cout << "Non-neighbouring Fibonacci Representation of "
 		<< n << " is \n"; 
-	printFibRepresntation(n); 
+	display_fib(n); 
 	return 0; 
 } 
