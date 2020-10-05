@@ -1,18 +1,15 @@
 #include<iostream>
-#include<cstring>
-
+#include<string>
 using namespace std;
 
 int main(){
     int n;
-    string wrds[100];
-
     cin>>n;
-
+    string wrds[n];
     for(int i=0; i<n; i++){
-        getline(cin, wrds[i]);
+        cin>>wrds[i];
     }
-    for each (string str in wrds){
+    for (string str : wrds){
         if(str.length()>10){
             cout<<str[0]<<str.length()-2<<str[str.length()-1]<<endl;
         }
@@ -20,6 +17,5 @@ int main(){
             cout<<str<<endl;
         }
     }
-
     return 0;
 }
