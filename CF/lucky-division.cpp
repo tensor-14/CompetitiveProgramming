@@ -2,26 +2,17 @@
 using namespace std;
 
 int main(){
-    int n;
-    bool flag = false, flag2 = false;
+    int n, num[14] = {4, 7, 44, 77, 47, 74, 444, 447, 474, 477, 744, 747, 774, 777};
+    bool flag = false;
     cin>>n;
 
-    for(int i=4; i<n^1/2; i++){
-        int num = i;
-        while(num){
-            if(num%10 == 4 || num%10 == 7){
-                flag2 = true;
-                num/=10;
-            }
-            else{
-                flag2 = false;
-                break;
-            } 
+    for(int i=0; i<14; i++){
+        if(n%num[i]==0){
+            flag=true;
+            break;
         }
-        if(flag2 && n%i==0)
-            flag = true;
     }
-
+        
     if(flag)
         cout<<"YES"<<endl;
     else
