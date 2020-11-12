@@ -4,15 +4,18 @@
 using namespace std;
 
 int main(){
-    int a, b, count=0, i;
+    int a, b, curA, curB, count;
     cin>>a>>b;
-
-    count = a;
     
-    i=a-b;
-    while(i>=0){
-        count++;
-        i-=b;
+    curB = 0;
+    curA = a;
+    count = 0;
+
+    while(curA){
+        count += curA;
+        curB += curA;
+        curA = curB/b;
+        curB = curB%b;
     }
 
     cout<<count<<endl;
