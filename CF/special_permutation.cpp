@@ -51,25 +51,25 @@ int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  ll testcases, val;
+  ll testcases, test, val;
+  vector<int> values, data;
   cin>>testcases;
-  vector<ll> ser;
-  testcases--;
+  test = testcases;
   while(testcases--) {
     cin>>val;
-    ser.push_back(val);
+    values.push_back(val);
   }
+  data.push_back(1);
+  for(ll i=0;i<test;i++){
 
-  sort(ser.begin(), ser.end());
-  testcases = val = ser.size();
-  while(testcases-1!=0){
-    if()
-    if(ser[testcases-1]-ser[testcases-2] != 1){
-      cout<<ser[testcases-1]-1;
-      break;
+    for(ll j=1; j<=values[i]; j++){
+      if(values[i]!=j)
+        cout<<j+1<<" ";
+      else
+        cout<<1<<" ";
     }
-    testcases--;
+    cout<<endl;
   }
-
-  return 0;
+  
+return 0;
 }

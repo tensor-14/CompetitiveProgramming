@@ -50,26 +50,10 @@ int main() {
   
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
+	
+  ll testcases;
+	cin>>testcases;
+	while(testcases--) {
 
-  ll testcases, val;
-  cin>>testcases;
-  vector<ll> ser;
-  testcases--;
-  while(testcases--) {
-    cin>>val;
-    ser.push_back(val);
-  }
-
-  sort(ser.begin(), ser.end());
-  testcases = val = ser.size();
-  while(testcases-1!=0){
-    if()
-    if(ser[testcases-1]-ser[testcases-2] != 1){
-      cout<<ser[testcases-1]-1;
-      break;
-    }
-    testcases--;
-  }
-
-  return 0;
+	}
 }
