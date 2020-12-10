@@ -11,4 +11,5 @@ int main(){
     }
 
     cout<<"\n"<<(1<<x)<<endl;
+    cout<<endl<<()
 }
