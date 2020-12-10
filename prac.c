@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node{
+struct Node{            //For Linked List
 	int data;
 	struct Node* next;
 	struct Node* prev;
 };
 
-void push(struct Node** head_ref, int new_data){
+void push(struct Node** head_ref, int new_data){            //To add data at the beginning
 	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
 
 	new_node->data = new_data;
@@ -21,7 +21,7 @@ void push(struct Node** head_ref, int new_data){
 	(*head_ref) = new_node;
 }
 
-void insertAfter(struct Node* prev_node, int new_data){
+void insertAfter(struct Node* prev_node, int new_data){         //To add data after the current iterator
 	if (prev_node == NULL){
 		printf("the given previous node cannot be NULL");
 		return;
@@ -37,7 +37,7 @@ void insertAfter(struct Node* prev_node, int new_data){
 		new_node->next->prev = new_node;
 }
 
-void append(struct Node** head_ref, int new_data){
+void append(struct Node** head_ref, int new_data){              //To add data at the last
 	struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
 	struct Node* last = *head_ref;
 	new_node->data = new_data;
@@ -58,7 +58,7 @@ void append(struct Node** head_ref, int new_data){
 	return;
 }
 
-void printList(struct Node* node){
+void printList(struct Node* node){              //To print the linked list
 	struct Node* last;
 	printf("\nTraversal in forward direction \n");
 	while (node != NULL) {
@@ -68,7 +68,7 @@ void printList(struct Node* node){
 	}
 }
 
-void primeFactorial(struct Node* node){
+void primeFactorial(struct Node* node){         //To print the primes and factorial of the largest prime
     if(node == NULL){
         printf("Empty list, returning!");
         return;
