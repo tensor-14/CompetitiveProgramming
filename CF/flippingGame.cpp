@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define fo(i,n) for(int i=0;i<n;i++)
+#define fo(i,n) for(i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define ll long long
 #define si(x) scanf("%d",&x)
@@ -46,17 +46,21 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll n, val, t;
-	cin >> n;
-	vi s;
+	int i, j, n, m, cnt0, cnt1;
+	cin>>n;
+	vi a(n), one, zero;
 	fo(i, n){
-		cin>>val;
-		s.push_back(val);
+		cin>>a[i];
+		if(a[i]==0){
+			cnt0++;
+			zero.pb(i);
+		}
+		else{
+			cnt1++;
+			one.pb(i);
+		}
 	}
-	sort(s.begin(), s.end());
-	while(n--){
-		;
-	}
+	
 }
 
 int main() {
