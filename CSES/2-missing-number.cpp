@@ -1,75 +1,107 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
-#include<string>
-#include<cstring>
-#include<iostream>
-#include<vector>
-#include<set>
-#include<algorithm>
-#include<unordered_map>
-#include<map>
-#define all(arr) arr.begin(),arr.end()
-#define MOD 1000000007
 using namespace std;
-typedef long long int ll;
-
-template <typename T>
-void input(vector<T> &arr,ll n) {
-  T temp;
-  for(ll i=0;i<n;i++) cin>>temp, arr.push_back(temp);
+#define gc getchar_unlocked
+#define fo(i,n) for(i=0;i<n;i++)
+#define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
+#define ll long long
+#define si(x) scanf("%d",&x)
+#define sl(x) scanf("%lld",&x)
+#define ss(s) scanf("%s",s)
+#define pi(x) printf("%d\n",x)
+#define pl(x) printf("%lld\n",x)
+#define ps(s) printf("%s\n",s)
+#define deb(x) cout << #x << "=" << x << endl
+#define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define clr(x) memset(x, 0, sizeof(x))
+#define sortall(x) sort(all(x))
+#define tr(it, a) for(auto it = a.begin(); it != a.end(); it++)
+#define PI 3.1415926535897932384626
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pl;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pii> vpii;
+typedef vector<pl> vpl;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
+mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
+int rng(int lim){
+	uniform_int_distribution<int> uid(0,lim-1);
+	return uid(rang);
 }
+int mpow(int base, int exp); 
+void ipgraph(int n, int m);
+void dfs(int u, int par);
 
-template <typename T>
-void output(vector<T> arr) {
-  T temp;
-  for(auto x:arr) cout<<x<<" ";
-  cout<<endl;
-}
+const int mod = 1'000'000'007;
+const int N = 3e5, M = N;
+//=======================
 
+vi g[N];
+int a[N];
 
-template <typename T>
-void input_set(set<T> &arr,ll n) {
-  T temp;
-  for(ll i=0;i<n;i++) cin>>temp, arr.insert(temp);
-}
-
-
-ll power(ll num,ll base) {
-  if(base==0)
-    return 1;
-
-  if(base%2)
-    return (num%MOD*power(num,base-1)%MOD)%MOD;
-  else {
-    ll x=power(num,base/2);
-    x=(x*x)%MOD;
-    return x;
-  }
+void solve(){
+	int i, j, n, m;
+	cin>>n;
+	vi a(n-1);
+	fo(i, n-1)
+		cin>>a[i];
+	sort(a.begin(), a.end());
+	fo(i, n-1){
+		if(a[i]!=(i+1)){
+			cout<<(i+1)<<"\n";
+			return;
+		}
+	}
+	cout<<n<<"\n";
 }
 
 int main() {
-  
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
+	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-  ll testcases, val;
-  cin>>testcases;
-  vector<ll> ser;
-  testcases--;
-  while(testcases--) {
-    cin>>val;
-    ser.push_back(val);
-  }
+	int t = 1;
+	//cin >> t;
+	while(t--) {
+		solve();
+	}
 
-  sort(ser.begin(), ser.end());
-  testcases = val = ser.size();
-  while(testcases-1!=0){
-    if()
-    if(ser[testcases-1]-ser[testcases-2] != 1){
-      cout<<ser[testcases-1]-1;
-      break;
-    }
-    testcases--;
-  }
-
-  return 0;
+	return 0;
 }
+
+int mpow(int base, int exp){
+	base %= mod;
+	int result = 1;
+	while (exp > 0){
+		if (exp & 1) result = ((ll)result * base) % mod;
+	base = ((ll)base * base) % mod;
+	exp >>= 1;
+	}
+	return result;
+}
+
+void ipgraph(int n, int m){
+	int i, u, v;
+	while(m--){
+		cin>>u>>v;
+		u--, v--;
+		g[u].pb(v);
+		g[v].pb(u);
+	}
+}
+
+void dfs(int u, int par){
+	for(int v:g[u]){
+		if (v == par) continue;
+		dfs(v, u);
+	}
+}
+
+

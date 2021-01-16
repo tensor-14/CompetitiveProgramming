@@ -1,3 +1,6 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
+//#pragma GCC target("avx, avx2, fma")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -46,44 +49,25 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m, k, x, y;
-	cin>>n>>k>>x>>y;
-	i=x; j=y; m=k;
-	if(x == y)
-		cout<<n<<" "<<n<<"\n";
-	else{
-		if(k%4 == 0){
-			if(x<y)
-				cout<<0<<" "<<y-x<<"\n";
-			else
-				cout<<x-y<<" "<<0<<"\n";
+	int i, j, n, m;
+	string b, a;
+	cin >> b;
+	for(i=0; i<b.size(); i+=2){
+		if(i==(b.size()-2)){
+			a.append(b, i, 2);
 		}
-		else if(k%4 == 1){
-			if(x<y)
-				cout<<(x+(n-y))<<" "<<n<<"\n";
-			else
-				cout<<n<<" "<<(y+(n-x))<<"\n";
-		}
-		else if(k%4 == 2){
-			if(x<y)
-				cout<<n<<" "<<(x+(n-y))<<"\n";
-			else
-				cout<<(y+(n-x))<<" "<<n<<"\n";
-		}
-		else{		//k%4 == 3
-			if(x<y)
-				cout<<y-x<<" "<<0<<"\n";
-			else
-				cout<<0<<" "<<x-y<<"\n";
+		else{
+			a.pb(b[i]);
 		}
 	}
+	cout<<a<<"\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	ll t = 1;
+	int t = 1;
 	cin >> t;
 	while(t--) {
 		solve();

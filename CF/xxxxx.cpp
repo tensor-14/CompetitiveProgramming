@@ -46,44 +46,36 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m, k, x, y;
-	cin>>n>>k>>x>>y;
-	i=x; j=y; m=k;
-	if(x == y)
-		cout<<n<<" "<<n<<"\n";
-	else{
-		if(k%4 == 0){
-			if(x<y)
-				cout<<0<<" "<<y-x<<"\n";
-			else
-				cout<<x-y<<" "<<0<<"\n";
-		}
-		else if(k%4 == 1){
-			if(x<y)
-				cout<<(x+(n-y))<<" "<<n<<"\n";
-			else
-				cout<<n<<" "<<(y+(n-x))<<"\n";
-		}
-		else if(k%4 == 2){
-			if(x<y)
-				cout<<n<<" "<<(x+(n-y))<<"\n";
-			else
-				cout<<(y+(n-x))<<" "<<n<<"\n";
-		}
-		else{		//k%4 == 3
-			if(x<y)
-				cout<<y-x<<" "<<0<<"\n";
-			else
-				cout<<0<<" "<<x-y<<"\n";
-		}
-	}
+	ll i, j, n, m, x, flag =0;
+	cin>>n>>x;
+	vl v(n);
+	fo(i, n)
+		cin>>v[i];
+	sort(v.begin(), v.end());
+	fo(i, n)
+		if(v[i]%x!=0)
+			flag = 1;
+	if(!flag)
+		cout<<-1<<"\n";
+	else if(accumulate(v.begin(), v.end(), 0)%x)
+		cout<<n<<"\n";
+	else
+		for(i=1; i<n-1; i++)
+			if(accumulate(v.begin()+i, v.end(), 0)%x){
+				cout<<(n-i)<<"\n";
+				break;
+			}
+			else if(accumulate(v.begin(), v.end()-i, 0)%x){
+				cout<<(n-i)<<"\n";
+				break;
+			}
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	ll t = 1;
+	int t = 1;
 	cin >> t;
 	while(t--) {
 		solve();

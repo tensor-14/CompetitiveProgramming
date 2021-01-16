@@ -53,10 +53,14 @@ void solve(){
 	for(i=0; i<n; i+=4){
 		ans = str;
 		for(j=i;j<i+4;j++){
-			if(s[j] == '0')
-				ans = ans[ans.length()/2, ans.length()-1];
-			else
-				ans = ans[0, (ans.length()/2)-1];
+			if(s[j] == '1'){
+				ans = ans.substr(ans.length()/2, ans.length()/2);
+				//cout<<ans<<endl;
+			}
+			else{
+				ans = ans.substr(0, (ans.length()/2));
+				//cout<<ans<<endl;
+			}
 		}
 		sol.append(ans);
 	}

@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -46,44 +48,32 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m, k, x, y;
-	cin>>n>>k>>x>>y;
-	i=x; j=y; m=k;
-	if(x == y)
-		cout<<n<<" "<<n<<"\n";
-	else{
-		if(k%4 == 0){
-			if(x<y)
-				cout<<0<<" "<<y-x<<"\n";
-			else
-				cout<<x-y<<" "<<0<<"\n";
-		}
-		else if(k%4 == 1){
-			if(x<y)
-				cout<<(x+(n-y))<<" "<<n<<"\n";
-			else
-				cout<<n<<" "<<(y+(n-x))<<"\n";
-		}
-		else if(k%4 == 2){
-			if(x<y)
-				cout<<n<<" "<<(x+(n-y))<<"\n";
-			else
-				cout<<(y+(n-x))<<" "<<n<<"\n";
-		}
-		else{		//k%4 == 3
-			if(x<y)
-				cout<<y-x<<" "<<0<<"\n";
-			else
-				cout<<0<<" "<<x-y<<"\n";
-		}
+	ll i, j, n, m, y, x;
+	cin>>x>>y;
+	if(x==y)
+		m = x*x - (x-1);
+	else if(x>y){
+		n = x*x - (x-1);
+		if(x%2==0)
+			m = n + (x-y);
+		else
+			m = n - (x-y);
 	}
+	else{
+		n = y*y - (y-1);
+		if(y%2==0)
+			m = n - (y-x);
+		else
+			m = n + (y-x);
+	}
+	cout<<m<<"\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	ll t = 1;
+	int t = 1;
 	cin >> t;
 	while(t--) {
 		solve();

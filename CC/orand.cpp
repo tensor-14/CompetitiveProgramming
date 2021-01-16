@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -46,44 +48,38 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m, k, x, y;
-	cin>>n>>k>>x>>y;
-	i=x; j=y; m=k;
-	if(x == y)
-		cout<<n<<" "<<n<<"\n";
-	else{
-		if(k%4 == 0){
-			if(x<y)
-				cout<<0<<" "<<y-x<<"\n";
-			else
-				cout<<x-y<<" "<<0<<"\n";
+	ll i, j, n, m, v=0;
+	cin>>n>>m;
+	vl a(n), b(m), sola, solb;
+	fo(i, n)
+		cin>>a[i];
+	fo(i, m)
+		cin>>b[j];
+	sola = a;
+	sola.pb(v);
+
+	fo(i, n){
+		for(j=i+1; j<n; j++){
+			sola.pb(sola[i]|a[j]);
+			cout<<(sola[i]|a[j])<<" ";
 		}
-		else if(k%4 == 1){
-			if(x<y)
-				cout<<(x+(n-y))<<" "<<n<<"\n";
-			else
-				cout<<n<<" "<<(y+(n-x))<<"\n";
-		}
-		else if(k%4 == 2){
-			if(x<y)
-				cout<<n<<" "<<(x+(n-y))<<"\n";
-			else
-				cout<<(y+(n-x))<<" "<<n<<"\n";
-		}
-		else{		//k%4 == 3
-			if(x<y)
-				cout<<y-x<<" "<<0<<"\n";
-			else
-				cout<<0<<" "<<x-y<<"\n";
+
+		for(int k=0; k<m; k++){
+			sola.pb(sola[i]&b[k]);
+			cout<<(sola[i]&b[k])<<" ";
 		}
 	}
+	
+	sort(sola.begin(), sola.end());
+	ll count1 = distance(sola.begin(), unique(sola.begin(), sola.end()));
+	cout<<count1<<"\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	ll t = 1;
+	int t = 1;
 	cin >> t;
 	while(t--) {
 		solve();
