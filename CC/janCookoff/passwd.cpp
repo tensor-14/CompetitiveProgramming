@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -45,49 +47,43 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-int solve(){
-	int cnt=0, i, j, n, m;
-	cin>>n;
-	vi notes(n);
-	fo(i, n)
-		cin>>notes[i];
-	sort(notes.begin(), notes.end());
-	int uniqueCount = unique(notes.begin(), notes.end()) - notes.begin();
-	if(n == 1)
-		return 1;
-	else if(n == 2)
-		return 2;
-	else{
-		for(i=0;i<n-1;i++){
-			//cout<<notes[i]<<" ";
-			if(notes[i] == notes[i+1])
-				notes[i+1]++;
-			else
-				notes[i]++;
-			//cout<<notes[i]<<" ";
-		}
-		notes[n-1]++;
+void solve(){
+	int i, j, n, m;
+	bool res1 = false, res2 = false, res3 = false, res4 = false;
+	string s;
+	cin>>s;
+	if(s.length()<10){
+		cout<<"NO\n";
+		return;
 	}
-	sort(notes.begin(), notes.end());
-	m = unique(notes.begin(), notes.end()) - notes.begin();
-	if(m>uniqueCount)
-		return m;
 	else
-		return uniqueCount;
+		for(i=0; i<s.length(); i++){
+			if(i!=0 and i!=(s.length()-1))
+				if(s[i]>='A' and s[i]<='Z')
+					res1 = true;
+				else if(s[i]>='0' and s[i]<='9')
+					res2 = true;
+				else if(s[i] == '@' or s[i] == '#' or s[i] == '%' or s[i] == '&' or s[i] ==	'?')
+					res3 = true;
+			if(s[i]>='a' and s[i]<='z')
+				res4 = true;
+		}
+	
+	if(res1 and res2 and res3 and res4)
+		cout<<"YES\n";
+	else
+		cout<<"NO\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	int i, t = 1;
+	int t = 1;
 	cin >> t;
-	vi sol(t);
-	fo(i, t) {
-		sol[i] = solve();
+	while(t--) {
+		solve();
 	}
-	fo(i, t)
-		cout<<sol[i]<<"\n";
 
 	return 0;
 }
@@ -119,3 +115,5 @@ void dfs(int u, int par){
 		dfs(v, u);
 	}
 }
+
+

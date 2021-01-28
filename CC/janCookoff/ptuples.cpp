@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -45,49 +47,43 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-int solve(){
-	int cnt=0, i, j, n, m;
+int SieveOfEratosthenes(ll n){
+  bool prime[n + 1];
+	ll a, b, cnt=0;
+  memset(prime, true, sizeof(prime));
+
+  for (ll p = 2; p * p <= n; p++){
+    if (prime[p] == true){
+      for (ll i = p * p; i <= n; i += p)
+				prime[i] = false;
+    }
+  }
+
+  for(ll i=n; i>0; i--)
+		if(prime[i] and prime[i-2])
+			cnt++;
+  return cnt/2;    
+}
+
+void solve(){
+	ll i, j, n, m;
 	cin>>n;
-	vi notes(n);
-	fo(i, n)
-		cin>>notes[i];
-	sort(notes.begin(), notes.end());
-	int uniqueCount = unique(notes.begin(), notes.end()) - notes.begin();
-	if(n == 1)
-		return 1;
-	else if(n == 2)
-		return 2;
-	else{
-		for(i=0;i<n-1;i++){
-			//cout<<notes[i]<<" ";
-			if(notes[i] == notes[i+1])
-				notes[i+1]++;
-			else
-				notes[i]++;
-			//cout<<notes[i]<<" ";
-		}
-		notes[n-1]++;
+	if(n<=4){
+		cout<<0<<"\n";
+		return;
 	}
-	sort(notes.begin(), notes.end());
-	m = unique(notes.begin(), notes.end()) - notes.begin();
-	if(m>uniqueCount)
-		return m;
-	else
-		return uniqueCount;
+	cout<<SieveOfEratosthenes(n)<<"\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	int i, t = 1;
+	int t = 1;
 	cin >> t;
-	vi sol(t);
-	fo(i, t) {
-		sol[i] = solve();
+	while(t--) {
+		solve();
 	}
-	fo(i, t)
-		cout<<sol[i]<<"\n";
 
 	return 0;
 }
@@ -119,3 +115,5 @@ void dfs(int u, int par){
 		dfs(v, u);
 	}
 }
+
+

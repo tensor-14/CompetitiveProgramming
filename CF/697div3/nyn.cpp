@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
@@ -45,49 +47,34 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-int solve(){
-	int cnt=0, i, j, n, m;
+void solve(){
+	ll i, j, n, m;
 	cin>>n;
-	vi notes(n);
-	fo(i, n)
-		cin>>notes[i];
-	sort(notes.begin(), notes.end());
-	int uniqueCount = unique(notes.begin(), notes.end()) - notes.begin();
-	if(n == 1)
-		return 1;
-	else if(n == 2)
-		return 2;
+	if(n<2020)
+		cout<<"NO\n";
 	else{
-		for(i=0;i<n-1;i++){
-			//cout<<notes[i]<<" ";
-			if(notes[i] == notes[i+1])
-				notes[i+1]++;
+		while(n>=2020){
+			if(n%10)
+				n = n-2021;
 			else
-				notes[i]++;
-			//cout<<notes[i]<<" ";
+				n = n-2020;
 		}
-		notes[n-1]++;
+		if(n==0)
+			cout<<"YES\n";
+		else
+			cout<<"NO\n";
 	}
-	sort(notes.begin(), notes.end());
-	m = unique(notes.begin(), notes.end()) - notes.begin();
-	if(m>uniqueCount)
-		return m;
-	else
-		return uniqueCount;
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	int i, t = 1;
+	int t = 1;
 	cin >> t;
-	vi sol(t);
-	fo(i, t) {
-		sol[i] = solve();
+	while(t--) {
+		solve();
 	}
-	fo(i, t)
-		cout<<sol[i]<<"\n";
 
 	return 0;
 }
@@ -119,3 +106,5 @@ void dfs(int u, int par){
 		dfs(v, u);
 	}
 }
+
+

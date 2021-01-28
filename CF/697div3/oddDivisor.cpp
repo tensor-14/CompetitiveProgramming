@@ -1,9 +1,11 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
 #define fo(i,n) for(i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
-#define ll long long
+#define ll long long int
 #define si(x) scanf("%d",&x)
 #define sl(x) scanf("%lld",&x)
 #define ss(s) scanf("%s",s)
@@ -44,50 +46,41 @@ const int N = 3e5, M = N;
 
 vi g[N];
 int a[N];
+const ll num = 100000000000000;
+bool prime[num];
 
-int solve(){
-	int cnt=0, i, j, n, m;
+void precomp(){
+  //bool prime[n + 1];
+	memset(prime, true, sizeof(prime));
+
+  for (ll p = 2; p * p <= num; p++){
+    if (prime[p] == true){
+      for (ll i = p * p; i <= num; i += p)
+        prime[i] = false;
+    }
+  }
+}
+
+void solve(){
+	ll i, j, n, m;
 	cin>>n;
-	vi notes(n);
-	fo(i, n)
-		cin>>notes[i];
-	sort(notes.begin(), notes.end());
-	int uniqueCount = unique(notes.begin(), notes.end()) - notes.begin();
-	if(n == 1)
-		return 1;
-	else if(n == 2)
-		return 2;
-	else{
-		for(i=0;i<n-1;i++){
-			//cout<<notes[i]<<" ";
-			if(notes[i] == notes[i+1])
-				notes[i+1]++;
-			else
-				notes[i]++;
-			//cout<<notes[i]<<" ";
-		}
-		notes[n-1]++;
-	}
-	sort(notes.begin(), notes.end());
-	m = unique(notes.begin(), notes.end()) - notes.begin();
-	if(m>uniqueCount)
-		return m;
+	if(prime[n])
+		cout<<"NO\n";
 	else
-		return uniqueCount;
+		cout<<"YES\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-	int i, t = 1;
+	precomp();
+
+	int t = 1;
 	cin >> t;
-	vi sol(t);
-	fo(i, t) {
-		sol[i] = solve();
+	while(t--) {
+		solve();
 	}
-	fo(i, t)
-		cout<<sol[i]<<"\n";
 
 	return 0;
 }
@@ -119,3 +112,5 @@ void dfs(int u, int par){
 		dfs(v, u);
 	}
 }
+
+

@@ -51,20 +51,20 @@ void solve(){
 	ll n, x, i, j, m;
 	cin>>n>>x;
 //	cout<<n<<x;
-	float sum=0.0;
+	ll sum=0;
 	vl v(n), p(n), con(n);
-	for(i=0; i<n; i++){
+	fo(i, n){
 		cin>>v[i]>>p[i];
 	}
 	i=0;
-	while(sum<=(float)x and i<n){
-		sum = sum + ((float)v[i]*(float)p[i])/100.0;
+	while(sum<=x*100 and i<n){
+		sum = sum + (v[i]*p[i]);
 		i++;
 	}
 
 	m = i;
 
-	if(sum>=x)
+	if(sum>x*100)
 		cout<<m<<"\n";
 	else
 		cout<<-1<<"\n";
