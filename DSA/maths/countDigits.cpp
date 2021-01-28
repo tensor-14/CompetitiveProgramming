@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//  O(num_digits)
 int icountDigits(long long int n){
     int count=0;
     while(n!=0){
@@ -10,6 +11,7 @@ int icountDigits(long long int n){
     return count;
 }
 
+//  O(num_digits)
 int rcountDigits(long long int n){
     if(n==0)
         return 0;
@@ -17,6 +19,7 @@ int rcountDigits(long long int n){
     return 1 + rcountDigits(n/10);
 }
 
+// O(1)
 int lcountDigits(long long int n){
     return floor(log10(n)+1);
 }

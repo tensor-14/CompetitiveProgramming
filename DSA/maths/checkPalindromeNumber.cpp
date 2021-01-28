@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//  O(number of digits)
 bool isPal(int n){
     int rev=0, temp = n;
     while(temp!=0){
