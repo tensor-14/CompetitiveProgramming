@@ -48,22 +48,22 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m;
+	int i, n, cnt=1, mx=1;
 	cin>>n;
-	if(n<2020)
-		cout<<"NO\n";
-	else{
-		while(n>=2020){
-			if(n%10)
-				n = n-2021;
-			else
-				n = n-2020;
+	vi a(n);
+	fo(i, n)
+		cin>>a[i];
+
+	for(i=0; i<n; i++){
+		if(i+1<n && a[i] == a[i+1])
+			++cnt;
+		else{
+			//cout<<cnt<<" "<<mx<<endl;
+			mx = max(cnt, mx);
+			cnt=1;
 		}
-		if(n==0)
-			cout<<"YES\n";
-		else
-			cout<<"NO\n";
 	}
+	cout<<mx<<"\n";
 }
 
 int main() {

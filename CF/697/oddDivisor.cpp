@@ -46,35 +46,18 @@ const int N = 3e5, M = N;
 
 vi g[N];
 int a[N];
-const ll num = 100000000000000;
-bool prime[num];
-
-void precomp(){
-  //bool prime[n + 1];
-	memset(prime, true, sizeof(prime));
-
-  for (ll p = 2; p * p <= num; p++){
-    if (prime[p] == true){
-      for (ll i = p * p; i <= num; i += p)
-        prime[i] = false;
-    }
-  }
-}
 
 void solve(){
 	ll i, j, n, m;
 	cin>>n;
-	if(prime[n])
-		cout<<"NO\n";
-	else
-		cout<<"YES\n";
+	while(n%2==0)
+		n=n/2;
+	cout<<(n>1?"YES":"NO")<<"\n";
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
-
-	precomp();
 
 	int t = 1;
 	cin >> t;

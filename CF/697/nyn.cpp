@@ -48,18 +48,15 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m, a, b, k, count=0;
-	cin>>a>>b>>k;
-	vl aa(k), bb(k);
-	fo(i, k)
-		cin>>aa[i];
-	fo(i, k)
-		cin>>bb[i];
-	fo(i, k){
-		m = aa[i];
-		n = bb[i];
-		for(j=i; j<k; j++)
+	ll n, cnt21, cnt20;
+	cin>>n;
+	cnt21 = n%2020;
+	cnt20 = (n-cnt21)/2020 - cnt21;
 
+	if(cnt20>=0 && (cnt21*2021+cnt20*2020==n))
+		cout<<"YES\n";
+	else
+		cout<<"NO\n";
 }
 
 int main() {
