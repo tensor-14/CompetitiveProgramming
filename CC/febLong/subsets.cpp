@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> v;
+vector<int> v, res;
 vector<vector<int>> result;
 
 void subset(int arr[],int k,int n,int idx){

@@ -40,49 +40,28 @@ int mpow(int base, int exp);
 void ipgraph(int n, int m);
 void dfs(int u, int par);
 
-const int mod = 998'244'353;
+const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
 //=======================
 
 vi g[N];
 int a[N];
 
-void subsetsUtil(vl& A, vvl& res, vl& subset, ll index){ 
-  res.push_back(subset); 
-  for(ll i = index; i < A.size(); i++) { 
-		subset.push_back(A[i]); 
-		subsetsUtil(A, res, subset, i + 1); 
-		subset.pop_back(); 
-  } 
-  
-	return; 
-} 
-
-vvl subsets(vl& A){ 
-  vl subset; 
-  vvl res; 
-  
-	ll index = 0; 
-  subsetsUtil(A, res, subset, index); 
-  
-  return res; 
-} 
-
 void solve(){
-	ll i, j, n, m, q, sm=0;
+	ll i, j, n, q, v, w;
+
 	sl(n);
-	vl a(n);
-	fo(i, n)
-		sl(a[i]);
+	vl p(n, 0), cnt(n, 0);
+	fo(i, n){
+		sl(p[i+1]);
+		cnt[p[i+1]]++;
+	}
 	sl(q);
+
 	while(q--){
-		sl(m);
-		sm = (accumulate(all(a), 0))%mod;
-		if(m==1)
-			pl(sm);
-		else{
-			
-		}
+		sl(v);
+		sl(w);
+		
 }
 
 int main() {
@@ -90,7 +69,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-//	cin >> t;
+	//cin >> t;
 	while(t--) {
 		solve();
 	}
