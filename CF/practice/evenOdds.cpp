@@ -47,31 +47,18 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-string inp(){
-	string s;
-	char ch;
-	while(cin>>ch){
-		s.pb(ch);
-	}
-	cout<<s;
-	return s;
-}
-
 void solve(){
-	int i=0, j, cnt=0;
-	string a, s;
-	getline(cin, a);
-	fo(i, a.length()){
-		if(a[i]>='a' && a[i]<='z'){
-			fo(j, s.size()){
-				if(s[j]==a[i])
-					break;
-			}
-			if(j==s.size())
-				s.pb(a[i]);
-		}
-	}
-	cout<<s.length()<<"\n";
+	ll i, n, k;
+	cin>>n>>k;
+	
+	if(k<=n/2)
+		cout<<(1+(2*(k-1)))<<"\n";
+	else if(n%2==1 && k==(n/2 + 1))
+		cout<<n<<"\n";
+	else if(n%2==1 && k>n/2)
+		cout<<(2+(2*(k-n/2-2)))<<"\n";
+	else
+		cout<<(2+(2*(k-n/2-1)))<<"\n";
 }
 
 int main() {
@@ -79,7 +66,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	//cin >> t;
+//	cin >> t;
 	while(t--) {
 		solve();
 	}

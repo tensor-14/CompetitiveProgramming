@@ -50,16 +50,40 @@ int a[N];
 void solve(){
 	int i, j, n, m, p, q;
 	cin>>n;
+
 	cin>>p;
-	vi a(p+n);
-	fo(i, p)
-		cin>>a[i];
+	vi a;
+	if(p!=0)
+		fo(i, p){
+			cin>>m;
+			a.pb(m);
+		}
+
 	cin>>q;
-	fo(i, q){
-		cin>>m;
-		a.pb(m);
+	if(q!=0)
+		for(i=p; i<(p+q); i++){
+			cin>>m;
+			a.pb(m);
+		}
+	if(p+q==0){
+		cout<<"Oh, my keyboard!\n";
+		return;
 	}
-	sort(a.begin(), a.end());`
+
+	sortall(a);
+	vector<int>::iterator it = unique(a.begin(), a.begin()+(p+q));
+	a.resize(distance(a.begin(), it));
+
+	bool flag = true;
+	fo(i, a.size()-1){
+		if(a[i+1]-a[i] !=1)
+			flag = false;
+	}
+	
+	if(flag && a[a.size()-1]==n && a[0] == 1)
+		cout<<"I become the guy.\n";
+	else
+		cout<<"Oh, my keyboard!\n";
 }
 
 int main() {

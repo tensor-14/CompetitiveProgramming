@@ -1,22 +1,22 @@
-def distinct(l1,l2):
+def diff_(l1,l2):
     s = len(set(l1+l2))
     return s
 
 for t in range(int(input())):
     n = int(input())
     l = input().split()
-    body={}
+    dict_={}
     for i in l:
         p = i[1:]
-        if p in body:
-            body[p].append(i[0])
+        if p in dict_:
+            dict_[p].append(i[0])
         else:
-            body[p] = [i[0]]
-    body1 = list(body.keys())
+            dict_[p] = [i[0]]
+    dict_1 = list(dict_.keys())
     s=0
 
-    for i in range(len(body)):
-        for j in range(i+1,len(body)):
-            temp = distinct(body[body1[i]], body[body1[j]])
-            s += (temp - len(body[body1[i]]))*(temp-len(body[body1[j]]))
+    for i in range(len(dict_)):
+        for j in range(i+1,len(dict_)):
+            temp = diff_(dict_[dict_1[i]], dict_[dict_1[j]])
+            s += (temp - len(dict_[dict_1[i]]))*(temp-len(dict_[dict_1[j]]))
     print(2*s)

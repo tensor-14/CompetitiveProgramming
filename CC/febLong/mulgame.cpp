@@ -47,31 +47,53 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-string inp(){
-	string s;
-	char ch;
-	while(cin>>ch){
-		s.pb(ch);
-	}
-	cout<<s;
-	return s;
-}
-
-void solve(){
-	int i=0, j, cnt=0;
-	string a, s;
-	getline(cin, a);
-	fo(i, a.length()){
-		if(a[i]>='a' && a[i]<='z'){
-			fo(j, s.size()){
-				if(s[j]==a[i])
-					break;
-			}
-			if(j==s.size())
-				s.pb(a[i]);
-		}
-	}
-	cout<<s.length()<<"\n";
+void solve(){        
+	ll i, j, k, n, q, m;
+  cin>>n>>q>>m;
+  ll a[n];
+  fo(i, n)
+		cin>>a[i];
+        
+  ll s[1000001] = {};
+  map<pl, int> mp;
+  while(q--){
+    ll l,r;
+    cin>>l>>r;
+    --l;--r;
+    if(a[l]>m)
+      continue;
+    else if(a[l]<=m && a[r]>m){
+      s[a[l]]++;
+      s[m+1]--;
+    }
+    else if(a[r]<=m){
+      s[a[l]]++;
+      s[m+1]--;
+      mp[{a[l], a[r]}]++;
+    }
+  }
+  
+	for(auto x:mp){
+		ll k = x.first.first;
+    ll p = x.first.second;
+    ll l = x.second;
+    s[p+k] -= l;
+    s[p+2*k] += l;
+    int c = p + 2*k;
+    while(c+p <= m){
+      c += p;
+      s[c] -= l;
+      s[c+k] += l;
+      c += k;
+    } 
+  }   
+  
+	ll mx = 0;
+  for(i=1;i<=m;i++){
+    s[i] += s[i-1];
+    mx = max(mx, s[i]);
+  }
+  cout<<mx<<endl;
 }
 
 int main() {
@@ -79,7 +101,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	//cin >> t;
+	cin >> t;
 	while(t--) {
 		solve();
 	}

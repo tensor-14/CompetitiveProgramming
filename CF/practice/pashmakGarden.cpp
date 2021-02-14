@@ -47,31 +47,24 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
-string inp(){
-	string s;
-	char ch;
-	while(cin>>ch){
-		s.pb(ch);
-	}
-	cout<<s;
-	return s;
-}
-
 void solve(){
-	int i=0, j, cnt=0;
-	string a, s;
-	getline(cin, a);
-	fo(i, a.length()){
-		if(a[i]>='a' && a[i]<='z'){
-			fo(j, s.size()){
-				if(s[j]==a[i])
-					break;
-			}
-			if(j==s.size())
-				s.pb(a[i]);
+	int i, j, n, m, x1, x2, x3, x4, y1, y2, y3, y4;
+	cin>>x1>>y1>>x2>>y2;
+	if(x1==x2){
+		if(y1==y2){
+			cout<<-1<<"\n";
+			return;
+		}
+		else{
+			y3=y1;
+			y4=y2;
+			x3=y2;
+			x4=y2;
 		}
 	}
-	cout<<s.length()<<"\n";
+	else if(x1==y1 || x2==y2){
+	}
+	cout<<x3<<" "<<y3<<" "<<x4<<" "<<y4<<"\n";
 }
 
 int main() {
