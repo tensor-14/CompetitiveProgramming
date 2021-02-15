@@ -15,6 +15,7 @@ using namespace std;
 #define deb(x) cout << #x << "=" << x << endl
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define pb push_back
+#define eb emplace_back
 #define mp make_pair
 #define F first
 #define S second
@@ -38,7 +39,6 @@ int rng(int lim){
 }
 int mpow(int base, int exp); 
 void ipgraph(int n, int m);
-void dfs(int u, int par);
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -47,21 +47,89 @@ const int N = 3e5, M = N;
 vi g[N];
 int a[N];
 
+struct HASH{
+  static uint64_t splitmix64 (uint64_t x){
+    x += 0x9e3779b97f4a7c15;
+    x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+    x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+    return x ^ (x >> 31);
+  }
+  size_t operator () (uint64_t x) const{
+    static const uint64_t FIXED_RANDOM = chrono::steady_clock::now ().time_since_epoch ().count ();
+    return splitmix64 (x + FIXED_RANDOM);
+  }
+};
+
+ll n;
+vvl tree;
+vl cc;
+vector<unordered_map<ll, ll, HASH>> store;
+vl sr;
+vector<set<pl>> byNow;
+
+void inp(){
+  cin >> n;
+  tree.resize (n + 1);
+  cc.resize (n + 1, 0);
+  store.resize (n + 1);
+  sr.resize (n + 1);
+  byNow.resize (n + 1);
+  for (ll i = 2; i <= n; ++i){
+    ll x;
+    cin >> x;
+    tree[x].eb(i);
+    cc[x]++;
+  }
+} 
+
+void conn (ll V){
+  sr[V] = V;
+  for (auto & child:tree[V]){
+    conn (child);
+    if (cc[V] == 1)
+	  sr[V] = sr[child];
+  }
+}
+
+void dfs (ll V){
+  for (auto & to:tree[V]){
+    ll c = to;
+    if (cc[V] == 1)
+	  c = sr[V];
+    if (cc[c] == 0){
+	    store[V][cc[V]]++;
+	    store[c][1]++;
+	    continue;
+	  }
+    dfs(c);
+    for(auto & it:store[c])
+	    store[V][cc[V] * 1ll * it.F] += it.S;
+  }
+}
+
 void solve(){
-	ll i, j, n, q, v, w;
-
-	sl(n);
-	vl p(n, 0), cnt(n, 0);
-	fo(i, n){
-		sl(p[i+1]);
-		cnt[p[i+1]]++;
-	}
-	sl(q);
-
-	while(q--){
-		sl(v);
-		sl(w);
-		
+  inp();
+  conn(1);
+  dfs(1);
+  ll q;
+  cin>>q;
+  while(q--){
+    ll V, w;
+    cin >> V >> w;
+    V = sr[V];
+    auto itr = byNow[V].lower_bound (pl { w, -1 });
+    if(itr != byNow[V].end() and itr->F == w){
+	    cout<<itr->S<<"\n";
+	    continue;
+    }
+    ll p = 0ll;
+    for(auto & i:store[V]){
+	    if(i.F and w % i.F == 0)
+	      p += (w / i.F) * i.S * 1ll;
+    }
+    byNow[V].insert (pl{w, w - p});
+    cout<<(w - p)<<"\n";
+  }
 }
 
 int main() {
@@ -97,12 +165,3 @@ void ipgraph(int n, int m){
 		g[v].pb(u);
 	}
 }
-
-void dfs(int u, int par){
-	for(int v:g[u]){
-		if (v == par) continue;
-		dfs(v, u);
-	}
-}
-
-

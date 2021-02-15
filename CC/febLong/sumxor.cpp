@@ -1,5 +1,5 @@
-#pragma GsolFunc1solFunc1 optimize("Ofast")
-#pragma GsolFunc1solFunc1 optimization("unroll-loops")
+#pragma GCC optimize("Ofast")
+#pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
