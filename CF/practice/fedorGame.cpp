@@ -48,44 +48,17 @@ vi g[N];
 int a[N];
 
 void solve(){
-	int side, x1, x2, x3, x4, y1, y2, y3, y4;
-	cin>>x1>>y1>>x2>>y2;
-
-	if(x1==x2 && y1==y2){
-		cout<<-1<<"\n";
-		return;
+	int i, j, n, m, k, cnt=0;
+	cin>>n>>m>>k;
+	vector<int> x(m+1);
+	for(i=0; i<m+1; i++)
+		cin>>x[i];
+	for(i=0; i<m; i++){
+		bitset<32> temp(x[m]^x[i]);
+		if(temp.count()<=k)
+			cnt++;
 	}
-	else if(x1==x2){
-		side=abs(y2-y1);
-		x3=x1+side;
-		y3=y1;
-		x4=x3;
-		y4=y2;
-	}
-	else if(y1==y2){
-		side=abs(x2-x1);
-		x3=x1;
-		y3=y1+side;
-		x4=x2;
-		y4=y2+side;
-	}
-	else if((((y2-y1)/(x2-x1))==1) && (((x2-x1)/(y2-y1))==1)){
-			x3=min(x1, x2);
-			x4=max(x1, x2);
-			y3=max(y1, y2);
-			y4=min(y1, y2);
-	}
-	else if((((y2-y1)/(x2-x1))==-1)){
-		x3=min(x2, x1);
-		x4=max(x2, x1);
-		y3=min(y2, y1);
-		y4=max(y2, y1);
-	}
-	else{
-		cout<<-1<<"\n";
-		return;
-	}
-	cout<<x3<<" "<<y3<<" "<<x4<<" "<<y4<<"\n";
+	cout<<cnt<<"\n";
 }
 
 int main() {
@@ -93,7 +66,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	//cin >> t;
+//	cin >> t;
 	while(t--) {
 		solve();
 	}

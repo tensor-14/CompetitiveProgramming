@@ -48,44 +48,29 @@ vi g[N];
 int a[N];
 
 void solve(){
-	int side, x1, x2, x3, x4, y1, y2, y3, y4;
-	cin>>x1>>y1>>x2>>y2;
-
-	if(x1==x2 && y1==y2){
-		cout<<-1<<"\n";
-		return;
-	}
-	else if(x1==x2){
-		side=abs(y2-y1);
-		x3=x1+side;
-		y3=y1;
-		x4=x3;
-		y4=y2;
-	}
-	else if(y1==y2){
-		side=abs(x2-x1);
-		x3=x1;
-		y3=y1+side;
-		x4=x2;
-		y4=y2+side;
-	}
-	else if((((y2-y1)/(x2-x1))==1) && (((x2-x1)/(y2-y1))==1)){
-			x3=min(x1, x2);
-			x4=max(x1, x2);
-			y3=max(y1, y2);
-			y4=min(y1, y2);
-	}
-	else if((((y2-y1)/(x2-x1))==-1)){
-		x3=min(x2, x1);
-		x4=max(x2, x1);
-		y3=min(y2, y1);
-		y4=max(y2, y1);
-	}
+	unsigned ll i=2, temp, p, a, b, c, x, y, z;
+	cin>>p>>a>>b>>c;
+	if(p<min(a, min(b, c)))
+		cout<<min(a, min(b, c))-p<<"\n";
+	else if(p==a || p==b || p==c)
+		cout<<0<<"\n";
 	else{
-		cout<<-1<<"\n";
-		return;
+		temp=INT_MAX;
+		x=min(a, min(b, c)); y=max(a, max(b, c)); z=a+b+c-x-y;
+		while(p>y){
+			x*=i;
+			y*=i;
+			z*=i;
+			if(x-p>0)
+				temp=min(temp, min(x-p, min(y-p, z-p)));
+			else if(z-p>0)
+				temp=min(temp, min(z-p, y-p));
+			else if(y-p>0)
+				temp=min(temp, y-p);
+			i++;
+		}
+		cout<<temp<<"\n";
 	}
-	cout<<x3<<" "<<y3<<" "<<x4<<" "<<y4<<"\n";
 }
 
 int main() {
@@ -93,7 +78,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	//cin >> t;
+	cin >> t;
 	while(t--) {
 		solve();
 	}

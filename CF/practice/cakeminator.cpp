@@ -48,44 +48,57 @@ vi g[N];
 int a[N];
 
 void solve(){
-	int side, x1, x2, x3, x4, y1, y2, y3, y4;
-	cin>>x1>>y1>>x2>>y2;
+	int i, j, c, r;
+	cin>>r>>c;
+	vector<string> pat(r);
+	char ch;
+	for(i=0; i<r; i++)
+		for(j=0; j<c; j++){
+			cin>>ch;
+			pat[i].push_back(ch);
+			//cout<<pat[i][j];
+		}
 
-	if(x1==x2 && y1==y2){
-		cout<<-1<<"\n";
-		return;
+	int cnt=0, cntl=0;
+
+	for(i=0; i<r; i++){
+		cntl=0;
+		for(j=0; j<c; j++){
+			//cout<<"LOOPi"<<i<<" "<<j<<"\n";
+			if(pat[i][j]=='S'){
+				cntl=0;
+				while(j--)
+					pat[i][j]='.';
+				j=c;
+			}
+			else if(pat[i][j]=='.'){
+				cntl++;
+				pat[i][j]='*';
+			}
+		}
+		//cout<<cntl<<" "<<cnt<<"\n";
+		cnt+=cntl;
 	}
-	else if(x1==x2){
-		side=abs(y2-y1);
-		x3=x1+side;
-		y3=y1;
-		x4=x3;
-		y4=y2;
+	
+	for(j=0; j<c; j++){
+		cntl=0;
+		for(i=0; i<r; i++){
+			//cout<<"loopI"<<j<<" "<<i<<"\n";
+			if(pat[i][j]=='S'){
+				cntl=0;
+				while(i--)
+					pat[i][j]='.';
+				i=r;
+			}
+			else if(pat[i][j]=='.'){
+				cntl++;
+				pat[i][j]='*';
+			}
+		}
+		//cout<<cntl<<" "<<cnt<<"\n";
+		cnt+=cntl;
 	}
-	else if(y1==y2){
-		side=abs(x2-x1);
-		x3=x1;
-		y3=y1+side;
-		x4=x2;
-		y4=y2+side;
-	}
-	else if((((y2-y1)/(x2-x1))==1) && (((x2-x1)/(y2-y1))==1)){
-			x3=min(x1, x2);
-			x4=max(x1, x2);
-			y3=max(y1, y2);
-			y4=min(y1, y2);
-	}
-	else if((((y2-y1)/(x2-x1))==-1)){
-		x3=min(x2, x1);
-		x4=max(x2, x1);
-		y3=min(y2, y1);
-		y4=max(y2, y1);
-	}
-	else{
-		cout<<-1<<"\n";
-		return;
-	}
-	cout<<x3<<" "<<y3<<" "<<x4<<" "<<y4<<"\n";
+	cout<<cnt<<"\n";
 }
 
 int main() {
@@ -93,7 +106,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	//cin >> t;
+//	cin >> t;
 	while(t--) {
 		solve();
 	}
