@@ -50,27 +50,8 @@ int a[N];
 void solve(){
 	unsigned ll i=2, temp, p, a, b, c, x, y, z;
 	cin>>p>>a>>b>>c;
-	if(p<min(a, min(b, c)))
-		cout<<min(a, min(b, c))-p<<"\n";
-	else if(p==a || p==b || p==c)
-		cout<<0<<"\n";
-	else{
-		temp=INT_MAX;
-		x=min(a, min(b, c)); y=max(a, max(b, c)); z=a+b+c-x-y;
-		while(p>y){
-			x*=i;
-			y*=i;
-			z*=i;
-			if(x-p>0)
-				temp=min(temp, min(x-p, min(y-p, z-p)));
-			else if(z-p>0)
-				temp=min(temp, min(z-p, y-p));
-			else if(y-p>0)
-				temp=min(temp, y-p);
-			i++;
-		}
-		cout<<temp<<"\n";
-	}
+	
+	cout<<(min(((p+a-1)/a)*a, min(((p+b-1)/b)*b, ((p+c-1)/c)*c)))-p<<"\n";
 }
 
 int main() {
