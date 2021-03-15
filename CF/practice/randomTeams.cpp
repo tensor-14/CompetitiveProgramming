@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast")
-#pragma GCC optimization("unroll-loops")
+#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
