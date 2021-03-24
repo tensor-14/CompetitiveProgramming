@@ -39,6 +39,7 @@ int rng(int lim){
 int mpow(int base, int exp); 
 void ipgraph(int n, int m);
 void dfs(int u, int par);
+ll c(ll a);
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -48,8 +49,11 @@ vi g[N];
 int a[N];
 
 void solve(){
-	ll i, j, n, m;
+	ll i, j, n, m, w, r;
 	cin>>n>>m;
+	w=n/m;
+	r=n%m;
+	cout<<c(w)*(m-r) + c(w+1)*r<<" "<<c(n-m+1)<<"\n";
 }
 
 int main() {
@@ -93,4 +97,6 @@ void dfs(int u, int par){
 	}
 }
 
-
+ll c(ll a){
+	return a*(a-1)/2;
+}
