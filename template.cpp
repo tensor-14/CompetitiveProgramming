@@ -1,5 +1,5 @@
 #pragma GCC optimize("Ofast")
-#pragma GCC optimization("unroll-loops")
+#pragma GCC optimize("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
 #define si(x) scanf("%d",&x)
@@ -11,6 +11,8 @@ using namespace std;
 #define deb(x) cout << #x << "=" << x << endl
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define PI 3.1415926535897932384626
+#define ll long long int
+#define endl "\n"
 
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 int rng(int lim) {
@@ -34,10 +36,12 @@ int main(){
 	ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
+	/*
 	#ifndef ONLINE_JUDGE 
-    	freopen("input.txt", "r", stdin); 
+    		freopen("input.txt", "r", stdin); 
 		freopen("output.txt", "w", stdout); 
 	#endif 
+	*/
 
 	int t = 1;
 	cin >> t;
