@@ -48,7 +48,25 @@ vi g[N];
 int a[N];
 
 void solve(){
-	int i, j, n, m;
+	int i, j, n, v, cnt=0, p, m;
+	cin>>n>>v;
+
+	vector<ll> sol;
+	for(i=0; i<n; i++){
+		bool flag=true;
+		cin>>m;
+		for(j=0; j<m; j++){
+			cin>>p;
+			if(v>p && flag){
+				cnt++;
+				sol.push_back(i+1);
+				flag=false;
+			}
+		}
+	}
+	cout<<cnt<<"\n";
+	for(i=0; i<cnt; i++)
+		cout<<sol[i]<<" ";
 }
 
 int main() {
@@ -56,7 +74,7 @@ int main() {
 	srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int t = 1;
-	cin >> t;
+//	cin >> t;
 	while(t--) {
 		solve();
 	}
