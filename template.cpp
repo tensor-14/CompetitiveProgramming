@@ -20,7 +20,7 @@ int rng(int lim) {
 	return uid(rang);
 }
 
-long long int mpow(int base, int exp); 
+ll mpow(ll base, ll exp); 
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -29,7 +29,7 @@ vector<int> g[N];
 int a[N];
 
 void solve(){
-	int i, j, n, m;
+	ll i, j, n, m;
 }
 
 int main(){
@@ -44,7 +44,7 @@ int main(){
 	*/
 
 	int t = 1;
-	cin >> t;
+	cin>>t;
 	while(t--){
 		solve();
 	}
@@ -52,12 +52,12 @@ int main(){
 	return 0;
 }
 
-long long int mpow(long long base, long long exp) {
+ll mpow(ll base, ll exp) {
 	base %= mod;
-	long long int result = 1;
+	ll result = 1;
 	while (exp > 0) {
-		if (exp & 1) result = ((long long)result * base) % mod;
-		base = ((long long)base * base) % mod;
+		if (exp & 1) result = ((ll)result * base) % mod;
+		base = ((ll)base * base) % mod;
 		exp >>= 1;
 	}
 	return result;
