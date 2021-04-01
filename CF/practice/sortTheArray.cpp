@@ -23,47 +23,59 @@ int rng(int lim) {
 ll mpow(ll base, ll exp); 
 
 const int mod = 1'000'000'007;
-const int N = 3e5, M = N;
+const int N = 1e5+5, M = N;
 
 vector<int> g[N];
-int a[N];
+ll a[N], b[N];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, x, y, cnt=0;
-	bool flag=true;
-	cin>>n;
+	ll i, j, n, L=-1, R=-1, cnt=0;
+	cin >> n;
 
-	vector<ll> a(n);
-	for(i=0; i<n; i++)
-		cin>>a[i];
+	for(i = 0; i < n; i++){
+		cin >> a[i];
+		b[i] = a[i];
+	}
+	map<ll, ll> mp;
+	sort(b, b + n);
+	for(i = 0; i < n; i++)
+		mp[b[i]] = i;
 
-	for(i=0; i<n-1; i++)
-		if(a[i]>a[i+1]){
-			cnt++;
-			x=i;
-			i++;
-			while(i<n && a[i]<a[i-1])
-				i++;
-			if(i==n || i==n-1)
-				y=i-1;
-			else
-				y=i;
-			else if(i<n-1)
-				while(i<n-1 && a[i]<a[i+1])
-					i++;
-			cout<<i<<"\n";
-			if(i==n || i==n-1)
-				flag=false;
+	for(i = 0; i < n; i++)
+		a[i] = mp[a[i]];
+
+	for(i = 0; i < n; i++)
+		if(a[i] != i){
+			L = i;
+			break;
 		}
 
-	if(cnt==1 && flag)
-		cout<<"yes\n"<<x+1<<" "<<y+1<<"\n";
-	else if(cnt==0)
-		cout<<"yes\n"<<1<<" "<<1<<"\n";
-	else
-		cout<<"no\n";
+	for(i = n - 1; i >= 0; i--)
+		if(a[i] != i){
+			R = i;
+			break;
+		}
+
+	if (L == -1 || R == -1){
+		cout << "yes" << endl;
+		cout << 1 << " " << 1 << endl;
+	}
+	else{
+		reverse(a + L, a + R + 1);
+		bool ok = true;
+		for(i = 0; i < n; i++)
+			if (a[i] != i)
+				ok = false;
+		
+		if(ok){
+			cout << "yes" << endl;
+			cout << L + 1 << " " << R + 1 << endl;
+		}
+		else
+			cout << "no" << endl;
+	}
 }
 
 int main(){
