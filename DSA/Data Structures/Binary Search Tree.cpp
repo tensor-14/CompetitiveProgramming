@@ -1,22 +1,4 @@
-/*
- Petar 'PetarV' Velickovic
- Data Structure: Binary Search Tree (Microchallenge)
-*/
-
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <time.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
+#include<bits/stdc++.h>
 #define MAX_D 10001
 using namespace std;
 typedef long long lld;
@@ -29,8 +11,7 @@ typedef long long lld;
 
 class BST;
 
-class Node
-{
+class Node{
     public:
     
         char key;
@@ -46,8 +27,7 @@ class Node
         BST *myTree;
 };
 
-class BST
-{
+class BST{
     public:
     
         Node *root;
@@ -75,8 +55,7 @@ class BST
         void prettyPrint();
 };
          
-Node::Node(char key, int satelliteData)
-{
+Node::Node(char key, int satelliteData){
     this -> key = key;
     this -> satelliteData = satelliteData;
     this -> left = NULL;
@@ -85,71 +64,59 @@ Node::Node(char key, int satelliteData)
     this -> myTree = NULL;
 }
 
-BST::BST()
-{
+BST::BST(){
     this -> root = NULL;
 }
 
-BST::BST(Node *root)
-{
+BST::BST(Node *root){
     this -> root = root;
 }
 
-bool BST::isEmpty()
-{
+bool BST::isEmpty(){
     return (root == NULL);
 }
 
-Node *BST::search(char key)
-{
+Node *BST::search(char key){
     if (isEmpty()) return NULL;
     if (root -> key > key) return root -> left -> search(key);
     else if (root -> key < key) return root -> right -> search(key);
     else return root;
 }
 
-Node *BST::minimum()
-{
+Node *BST::minimum(){
     if (isEmpty()) return NULL;
     if (root -> left == NULL) return root;
     return root -> left -> minimum();
 }
 
-Node *BST::maximum()
-{
+Node *BST::maximum(){
     if (isEmpty()) return NULL;
     if (root -> right == NULL) return root;
     return root -> right -> maximum();
 }
 
-Node *BST::predecessor(Node *x)
-{
+Node *BST::predecessor(Node *x){
     if (x -> left != NULL) return x -> left -> maximum();
     Node *top = x -> parent;
-    while (top != NULL && top -> key > x -> key)
-    {
+    while (top != NULL && top -> key > x -> key){
         x = top;
         top = top -> parent;
     }
     return top;
 }
 
-Node *BST::successor(Node *x)
-{
+Node *BST::successor(Node *x){
     if (x -> right != NULL) return x -> right -> minimum();
     Node *top = x -> parent;
-    while (top != NULL && top -> key < x -> key)
-    {
+    while (top != NULL && top -> key < x -> key){
         x = top;
         top = top -> parent;
     }
     return top;
 }
 
-void BST::Insert(Node *x)
-{
-    if (isEmpty())
-    {
+void BST::Insert(Node *x){
+    if (isEmpty()){
         Node *n = new Node(x -> key, x -> satelliteData);
         n -> parent = NULL;
         n -> myTree = this;
@@ -159,12 +126,9 @@ void BST::Insert(Node *x)
     
     Node *curr = root;
     
-    while (true)
-    {
-        if (x -> key < curr -> key)
-        {
-            if (curr -> left == NULL)
-            {
+    while (true){
+        if (x -> key < curr -> key){
+            if (curr -> left == NULL){
                 BST *L = new BST();
                 Node *n = new Node(x -> key, x -> satelliteData);
                 n -> parent = curr;
@@ -175,10 +139,8 @@ void BST::Insert(Node *x)
             }
             else curr = curr -> left -> root;
         }
-        else if (x -> key > curr -> key)
-        {
-            if (curr -> right == NULL)
-            {
+        else if (x -> key > curr -> key){
+            if (curr -> right == NULL){
                 BST *R = new BST();
                 Node *n = new Node(x -> key, x -> satelliteData);
                 n -> parent = curr;
@@ -193,67 +155,50 @@ void BST::Insert(Node *x)
     }
 }
 
-void BST::Delete(Node *del)
-{
+void BST::Delete(Node *del){
     Node *tmp;
     
-    if (del -> left == NULL && del -> right == NULL) //leaf
-    {
-        if (del -> parent != NULL)
-        {
+    if (del -> left == NULL && del -> right == NULL){   //leaf
+        if (del -> parent != NULL){
             if (del -> parent -> left != NULL && del -> parent -> left -> root -> key == del -> key)
-            {
                 del -> parent -> left = NULL;
-            }
+    
             else if (del -> parent -> right != NULL && del -> parent -> right -> root -> key == del -> key)
-            {
                 del -> parent -> right = NULL;
-            }
         }
         delete del;
         return;
     }
     
-    if (del -> left == NULL)
-    {
+    if (del -> left == NULL){
         tmp = del -> right -> root;
-        if (del -> parent != NULL)
-        {
+        if (del -> parent != NULL){
             if (del -> parent -> left != NULL && del -> parent -> left -> root -> key == del -> key)
-            {
                 del -> parent -> left = tmp -> myTree;
-            }
+            
             else if (del -> parent -> right != NULL && del -> parent -> right -> root -> key == del -> key)
-            {
                 del -> parent -> right = tmp -> myTree;
-            }
         }
         tmp -> parent = del -> parent;
         delete del;
         return;
     }
     
-    if (del -> right == NULL)
-    {
+    if (del -> right == NULL){
         tmp = del -> left -> root;
-        if (del -> parent != NULL)
-        {
+        if (del -> parent != NULL){
             if (del -> parent -> left != NULL && del -> parent -> left -> root -> key == del -> key)
-            {
                 del -> parent -> left = tmp -> myTree;
-            }
+ 
             else if (del -> parent -> right != NULL && del -> parent -> right -> root -> key == del -> key)
-            {
                 del -> parent -> right = tmp -> myTree;
-            }
         }
         tmp -> parent = del -> parent;
         delete del;
         return;
     }
     
-    else
-    {
+    else{
         tmp = successor(del);
         del -> key = tmp -> key;
         del -> satelliteData = tmp -> satelliteData;
@@ -261,18 +206,13 @@ void BST::Delete(Node *del)
     }
 }
 
-void BST::set(char key, int value)
-{
+void BST::set(char key, int value){
     if (search(key) != NULL)
-    {
         Insert(new Node(key, value));
-    }
 }
 
-void BST::inOrderPrint(bool brackets)
-{
-    if (root == NULL)
-    {
+void BST::inOrderPrint(bool brackets){
+    if (root == NULL){
         if (brackets) printf("{}");
         return;
     }
@@ -283,8 +223,7 @@ void BST::inOrderPrint(bool brackets)
     if (brackets) printf("}");
 }
 
-void BST::prettyPrint()
-{
+void BST::prettyPrint(){
     if (isEmpty()) return;
     
     //do a breadth-first traversal of the tree to get the depth and extract the level by level node ordering.
@@ -295,8 +234,7 @@ void BST::prettyPrint()
     queue<int> bfs_d;
     bfs_q.push(root);
     bfs_d.push(0);
-    while (!bfs_q.empty())
-    {
+    while (!bfs_q.empty()){
         Node *curr = bfs_q.front();
         int dt = bfs_d.front();
         
@@ -305,34 +243,31 @@ void BST::prettyPrint()
         
         Tree[dt].push_back(curr -> key);
         
-        if (curr -> key != ' ' && dt > depth) depth = dt;
-        if (curr -> key == ' ' && dt > depth+1) break;
+        if(curr -> key != ' ' && dt > depth)
+            depth = dt;
+        if(curr -> key == ' ' && dt > depth+1)
+            break;
         
-        if (curr -> left != NULL)
-        {
+        if(curr -> left != NULL){
             bfs_q.push(curr -> left -> root);
             bfs_d.push(dt + 1);
         }
-        else
-        {
+        else{
             bfs_q.push(new Node(' ', 0));
             bfs_d.push(dt + 1);
         }
         
-        if (curr -> right != NULL)
-        {
+        if(curr -> right != NULL){
             bfs_q.push(curr -> right -> root);
             bfs_d.push(dt + 1);
         }
-        else
-        {
+        else{
             bfs_q.push(new Node(' ', 0));
             bfs_d.push(dt + 1);
         }
     }
     
-    if (depth == 0)
-    {
+    if(depth == 0){
         printf("%c", root -> key);
         return;
     }
@@ -344,8 +279,7 @@ void BST::prettyPrint()
     
     vector<vector<char> > fancyTree;
     fancyTree.resize(height + 5);
-    for (int i=0;i<height;i++)
-    {
+    for(int i=0;i<height;i++){
         fancyTree[i].resize(width + 5);
         fill(fancyTree[i].begin(),fancyTree[i].end(),' ');
     }
@@ -354,8 +288,7 @@ void BST::prettyPrint()
     bool ok[1000001];
     
     int ii = 0;
-    while (ii < width)
-    {
+    while(ii < width){
         pos.insert(ii);
         ok[ii] = false;
         ii += 2;
@@ -364,28 +297,23 @@ void BST::prettyPrint()
     int currLevel = height - 1;
     int levelZ = 0;
     
-    for (int i=depth;i>=0;i--)
-    {
-        if (i == 0)
-        {
+    for(int i=depth;i>=0;i--){
+        if(i == 0){
             fancyTree[0][(*pos.begin())] = Tree[0][0];
             break;
         }
         int jj = 0;
         
-        for (std::set<int>::iterator it = pos.begin(); it != pos.end(); it++)
-        {
+        for(std::set<int>::iterator it = pos.begin(); it != pos.end(); it++){
             fancyTree[currLevel][(*it)] = Tree[i][jj];
-            if (Tree[i][jj++] != ' ') ok[(*it)] = true;
+            if(Tree[i][jj++] != ' ') ok[(*it)] = true;
         }
         
         currLevel--;
         int hem = 0;
-        while (hem < (1 << levelZ))
-        {
+        while (hem < (1 << levelZ)){
             std::set<int> help;
-            for (std::set<int>::iterator it = pos.begin(); it != pos.end();)
-            {
+            for (std::set<int>::iterator it = pos.begin(); it != pos.end();){
                 help.insert((*it) + 1);
                 ok[(*it)+1] = ok[(*it)];
                 if (ok[(*it)]) fancyTree[currLevel][(*it)] = '/';
@@ -401,44 +329,45 @@ void BST::prettyPrint()
         }
         levelZ++;
     }
-    for (int i=0;i<height;i++)
-    {
-        for (int j=0;j<width;j++)
-        {
-            printf("%c",fancyTree[i][j]);
-        }
-        if (i < height - 1) printf("\n");
+    for (int i=0;i<height;i++){
+        for (int j=0; j<width; j++)
+            printf("%c", fancyTree[i][j]);
+        if (i < height - 1)
+            printf("\n");
     }
 }
 
-int main()
-{
-    
+int main(){
     char response[55];
     bool fancy = false;
     
     printf("Do you want to test with fancy BST output? (Y/N)\n");
-    while (true)
-    {
+    while (true){
         scanf("%s", response);
-        if (response[0] == 'Y' || response[0] == 'y') { fancy = true; break; }
-        else if (response[0] == 'N' || response[0] == 'n') break;
+        if(response[0] == 'Y' || response[0] == 'y'){
+            fancy = true;
+            break;
+        }
+        else if(response[0] == 'N' || response[0] == 'n')
+            break;
         printf("Incorrect character! You must input 'Y' or 'N'. Retry: \n");
     }
     
     printf("Do you want to write the results to file? (Y/N)\n");
-    while (true)
-    {
+    while (true){
         scanf("%s", response);
-        if (response[0] == 'Y' || response[0] == 'y') break;
-        else if (response[0] == 'N' || response[0] == 'n') break;
+        if (response[0] == 'Y' || response[0] == 'y')
+            break;
+        else if (response[0] == 'N' || response[0] == 'n')
+            break;
         printf("Incorrect character! You must input 'Y' or 'N'. Retry: \n");
     }
     
-    if (response[0] == 'Y' || response[0] == 'y')
-    {
-        if (!fancy) freopen("/Users/PetarV/TestLogs/BST-Test-Regular.txt","w",stdout);
-        else freopen("/Users/PetarV/TestLogs/BST-Test-Fancy.txt","w",stdout);
+    if(response[0] == 'Y' || response[0] == 'y'){
+        if (!fancy) 
+            freopen("/Users/PetarV/TestLogs/BST-Test-Regular.txt","w",stdout);
+        else
+            freopen("/Users/PetarV/TestLogs/BST-Test-Fancy.txt","w",stdout);
     }
     
     time_t t = time(0);
@@ -450,56 +379,110 @@ int main()
     
     printf("Creating an empty BST.\n");
     BST *testRoot = new BST();
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'D'.\n");
     testRoot -> Insert(new Node('D', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'I'.\n");
     testRoot -> Insert(new Node('I', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'N'.\n");
     testRoot -> Insert(new Node('N', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'O'.\n");
     testRoot -> Insert(new Node('O', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'S'.\n");
     testRoot -> Insert(new Node('S', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'A'.\n");
     testRoot -> Insert(new Node('A', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'U'.\n");
     testRoot -> Insert(new Node('U', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'R'.\n");
     testRoot -> Insert(new Node('R', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Searching for the predecessor of 'D'.\n");
@@ -508,8 +491,14 @@ int main()
     
     printf("Deleting 'I'.\n");
     testRoot -> Delete(testRoot -> search('I'));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Searching for the maximal key in the tree.\n");
@@ -518,8 +507,14 @@ int main()
     
     printf("Inserting 'Z'.\n");
     testRoot -> Insert(new Node('Z', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Searching for the successor of 'R'.\n");
@@ -528,14 +523,26 @@ int main()
 
     printf("Deleting 'S'.\n");
     testRoot -> Delete(testRoot -> search('S'));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Inserting 'T'.\n");
     testRoot -> Insert(new Node('T', 0));
-    if (!fancy) { printf("BST contains: "); testRoot -> inOrderPrint(true); }
-    else { printf("BST contains: \n"); testRoot -> prettyPrint(); }
+    if(!fancy){
+        printf("BST contains: ");
+        testRoot -> inOrderPrint(true);
+    }
+    else{
+        printf("BST contains: \n");
+        testRoot -> prettyPrint();
+    }
     printf("\n---------------------------------------------------------------\n");
     
     printf("Testing completed.\n");

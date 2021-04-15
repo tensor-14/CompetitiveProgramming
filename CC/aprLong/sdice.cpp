@@ -11,6 +11,8 @@ using namespace std;
 #define deb(x) cout << #x << "=" << x << endl
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define PI 3.1415926535897932384626
+#define ll long long int
+#define endl "\n"
 
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 int rng(int lim) {
@@ -18,7 +20,7 @@ int rng(int lim) {
 	return uid(rang);
 }
 
-long long int mpow(int base, int exp); 
+ll mpow(ll base, ll exp); 
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -26,8 +28,40 @@ const int N = 3e5, M = N;
 vector<int> g[N];
 int a[N];
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 void solve(){
-	int i, j, n, m;
+	ll n, m, sol=0;
+	cin>>n;
+
+	sol=(n/4)*44;
+	m=(n%4);
+	
+	if(n>=4){
+		switch(m){
+			case 0:	sol+=16;
+							break;
+			case 1:	sol+=32;
+							break;
+			case 2:	sol+=44;
+							break;
+			case 3:	sol+=55;
+							break;
+		}
+		cout<<sol<<endl;
+	}
+	else{
+		sol=0;
+		switch(m){
+			case 1:	sol=20;
+							break;
+			case 2:	sol=36;
+							break;
+			case 3:	sol=51;
+							break;
+		}
+		cout<<sol<<endl;
+	}
 }
 
 int main(){
@@ -36,9 +70,9 @@ int main(){
 
 	/*
 	#ifndef ONLINE_JUDGE 
-    freopen("input.txt", "r", stdin); 
+		freopen("input.txt", "r", stdin); 
 		freopen("output.txt", "w", stdout); 
-	#endif
+	#endif 
 	*/
 
 	int t = 1;
@@ -50,13 +84,14 @@ int main(){
 	return 0;
 }
 
-long long int mpow(long long base, long long exp) {
+ll mpow(ll base, ll exp) {
 	base %= mod;
-	long long int result = 1;
+	ll result = 1;
 	while (exp > 0) {
-		if (exp & 1) result = ((long long)result * base) % mod;
-		base = ((long long)base * base) % mod;
+		if (exp & 1) result = ((ll)result * base) % mod;
+		base = ((ll)base * base) % mod;
 		exp >>= 1;
 	}
 	return result;
 }
+

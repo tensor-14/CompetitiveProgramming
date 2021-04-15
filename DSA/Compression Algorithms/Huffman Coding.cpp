@@ -1,22 +1,4 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Huffman Coding
-*/
-
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
-
+#include<bits/stdc++.h>
 typedef long long lld;
 typedef unsigned long long llu;
 using namespace std;
@@ -41,8 +23,7 @@ string str;
 map<char, double> P;
 
 // The Huffman Tree
-struct HuffTreeNode
-{
+struct HuffTreeNode{
     double p;
     bool leaf;
     char letter;
@@ -52,8 +33,7 @@ struct HuffTreeNode
     HuffTreeNode *r;
     
     // nonleaf node
-    HuffTreeNode(double p, HuffTreeNode *l, HuffTreeNode *r)
-    {
+    HuffTreeNode(double p, HuffTreeNode *l, HuffTreeNode *r){
         this -> p = p;
         this -> leaf = false;
         this -> letter = '\0';
@@ -66,8 +46,7 @@ struct HuffTreeNode
     }
     
     // leaf node
-    HuffTreeNode(double p, char c)
-    {
+    HuffTreeNode(double p, char c){
         this -> p = p;
         this -> leaf = true;
         this -> letter = c;
@@ -76,13 +55,11 @@ struct HuffTreeNode
 };
 
 // Comparator of two node pointers
-struct CmpNodePtrs
-{
+struct CmpNodePtrs{
     // As priority_queue is a max heap rather than min-heap,
     // invert the meaning of the < operator,
     // in order to get lower probabilities at the top
-    bool operator()(const HuffTreeNode* lhs, const HuffTreeNode* rhs) const
-    {
+    bool operator()(const HuffTreeNode* lhs, const HuffTreeNode* rhs) const{
         return (lhs -> p) > (rhs -> p);
     }
 };
@@ -94,32 +71,26 @@ HuffTreeNode *root;
 map<char, HuffTreeNode*> leaf;
 
 // Produces the probability distribution (may be omitted if known in advance)
-inline void analyse()
-{
-    for (int i=0;i<str.length();i++)
-    {
+inline void analyse(){
+    for (int i=0;i<str.length();i++){
         P[str[i]]++;
     }
-    for (auto it = P.begin();it!=P.end();it++)
-    {
+    for (auto it = P.begin();it!=P.end();it++){
         P[it -> first] = it -> second / str.length();
     }
 }
 
 // Construct the Huffman Tree using the probability distribution
-inline void build_tree()
-{
+inline void build_tree(){
     priority_queue<HuffTreeNode*, vector<HuffTreeNode*>, CmpNodePtrs> pq;
     
     // First construct the leaves, and fill the priority queue
-    for (auto it = P.begin();it!=P.end();it++)
-    {
+    for (auto it = P.begin();it!=P.end();it++){
         leaf[it -> first] = new HuffTreeNode(it -> second, it -> first);
         pq.push(leaf[it -> first]);
     }
     
-    while (pq.size() > 1)
-    {
+    while (pq.size() > 1){
         HuffTreeNode* L = pq.top(); pq.pop();
         HuffTreeNode* R = pq.top(); pq.pop();
         
@@ -132,13 +103,11 @@ inline void build_tree()
 }
 
 // Huffman-encode a given character
-inline string encode(char c)
-{
+inline string encode(char c){
     string ret = "";
     
     HuffTreeNode* curr = leaf[c];
-    while (curr -> parent != NULL)
-    {
+    while (curr -> parent != NULL){
         if (curr == curr -> parent -> l) ret += "0";
         else if (curr == curr -> parent -> r) ret += "1";
         
@@ -150,12 +119,10 @@ inline string encode(char c)
 }
 
 // Huffman-encode the given string
-inline string encode(string s)
-{
+inline string encode(string s){
     string ret = "";
     
-    for (int i=0;i<s.length();i++)
-    {
+    for (int i=0;i<s.length();i++){
         ret += encode(s[i]);
     }
     
@@ -163,18 +130,15 @@ inline string encode(string s)
 }
 
 // Huffman-decode the given string
-inline string decode(string s)
-{
+inline string decode(string s){
     string ret = "";
     
     int i = 0;
     HuffTreeNode* curr;
     
-    while (i < s.length())
-    {
+    while (i < s.length()){
         curr = root;
-        while (!(curr -> leaf))
-        {
+        while (!(curr -> leaf)){
             if (s[i++] == '0') curr = curr -> l;
             else curr = curr -> r;
         }
@@ -183,16 +147,14 @@ inline string decode(string s)
     return ret;
 }
 
-int main()
-{
+int main(){
     str = "this is an example of a huffman tree";
     
     analyse();
     build_tree();
     
     string test = " aefhimnstloprux";
-    for (int i=0;i<test.length();i++)
-    {
+    for (int i=0;i<test.length();i++){
         cout << "Encode(" << test[i] << ") = " << encode(test[i]) << endl;
     }
     

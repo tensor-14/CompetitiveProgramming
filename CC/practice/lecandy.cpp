@@ -31,28 +31,20 @@ int a[N];
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, m, dp[25][25], sol=0;
-	string a, b;
-
-	cin>>a;
-	cin>>b;
-	m=a.size();
-	n=b.size();
-
-	for(i=0; i<m; i++)
-		for(j=0; j<n; j++){
-			if(a[i]==b[j])
-				if(a[i-1]==b[j-1] && i-1>=0 && j-1>=0)
-					dp[i][j]=dp[i-1][j-1]+1;
-				else
-					dp[i][j]=1;
-			else
-				dp[i][j]=0;
-			
-			sol=max(sol, dp[i][j]);
+	ll i, j, n, m, c;
+	cin>>n>>c;
+	bool flag=true;
+	vector<ll> a(n);
+	for(i=0; i<n; i++){
+		cin>>a[i];
+		if(a[i]>c){
+			c=-1;
+			flag=false;
 		}
-
-	cout<<m+n-2*sol<<endl;
+		else
+			c-=a[i];
+	}
+	cout<<((flag==true)?"Yes\n":"No\n");
 }
 
 int main(){

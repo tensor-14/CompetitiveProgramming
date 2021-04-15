@@ -30,10 +30,11 @@ int a[N];
 void solve(){
 	long long int i, j, n, m, x;
 	cin>>n>>m>>x;
+	x--;
 
 	i=x%n;
 	j=x/n;
-	cout<<
+	cout<<i*m+j+1<<endl;
 }
 
 int main(){

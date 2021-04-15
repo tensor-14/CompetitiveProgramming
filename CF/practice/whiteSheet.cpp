@@ -20,7 +20,18 @@ int rng(int lim) {
 	return uid(rang);
 }
 
-ll mpow(ll base, ll exp); 
+ll mpow(ll base, ll exp);
+
+struct rect{
+	ll x1, y1, x2, y2;
+	
+	ll area(){
+		return (x2-x1)*(y2-y1);
+	}
+};
+
+ll intersect(rect, rect);
+rect togOver(rect, rect);
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -31,28 +42,19 @@ int a[N];
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, m, dp[25][25], sol=0;
-	string a, b;
+	ll i, j, aw, ab1, ab2, ab;
+	rect w, b1, b2;
+	
+	cin>>w.x1>>w.y1>>w.x2>>w.y2;
+	cin>>b1.x1>>b1.y1>>b1.x2>>b1.y2;
+	cin>>b2.x1>>b2.y1>>b2.x2>>b2.y2;
+	aw=w.area();
+	ab1=intersect(w, b1);
+	ab2=intersect(w, b2);
+	ab=intersect(togOver(b1, b2), w);
 
-	cin>>a;
-	cin>>b;
-	m=a.size();
-	n=b.size();
-
-	for(i=0; i<m; i++)
-		for(j=0; j<n; j++){
-			if(a[i]==b[j])
-				if(a[i-1]==b[j-1] && i-1>=0 && j-1>=0)
-					dp[i][j]=dp[i-1][j-1]+1;
-				else
-					dp[i][j]=1;
-			else
-				dp[i][j]=0;
-			
-			sol=max(sol, dp[i][j]);
-		}
-
-	cout<<m+n-2*sol<<endl;
+	//cout<<aw<<" "<<ab1<<" "<<ab2<<" "<<ab<<endl;
+	cout<<(aw>ab1+ab2-ab?"YES":"NO")<<endl;
 }
 
 int main(){
@@ -67,7 +69,7 @@ int main(){
 	*/
 
 	int t = 1;
-	cin >> t;
+	//cin >> t;
 	while(t--){
 		solve();
 	}
@@ -86,3 +88,37 @@ ll mpow(ll base, ll exp) {
 	return result;
 }
 
+ll intersect(rect p, rect q){
+	ll xo=max(0LL, min(p.x2, q.x2)-max(p.x1, q.x1));
+	ll yo=max(0LL, min(p.y2, q.y2)-max(p.y1, q.y1));
+	return xo*yo;
+	/*
+	ll lf=max(min(p.x1, p.x2), min(q.x1, q.x2));
+	ll rg=min(max(p.x1, p.x2), max(q.x1, q.x2));
+	ll up=min(max(p.y1, p.y2), max(q.y1, q.y2));
+	ll dn=max(min(p.y1, p.y2), min(q.y1, q.y2));
+	if(rg<=lf || up<=dn)
+		return 0;
+	return 1LL*abs(lf-rg)*abs(up-dn);
+	*/
+}
+
+rect togOver(rect p, rect q){
+	ll x1=max(p.x1, q.x1);
+	ll x2=min(p.x2, q.x2);
+	ll y1=max(p.y1, q.y1);
+	ll y2=min(p.y2, q.y2);
+
+	if(x1>x2)
+		x1=x2=0;
+	if(y1>y2)
+		y1=y2=0;
+
+	rect sol;
+	sol.x1=x1;
+	sol.x2=x2;
+	sol.y1=y1;
+	sol.y2=y2;
+
+	return sol;
+}

@@ -1,22 +1,4 @@
-/*
- Petar 'PetarV' Velickovic
- Data Structure: Circular Doubly Linked List (Microchallenge)
-*/
-
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <time.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
+#include<bits/stdc++.h>
 using namespace std;
 typedef long long lld;
 
@@ -27,8 +9,7 @@ typedef long long lld;
                 O(N) for: extractMinimum and Delete (if we're deleting the minimum).
 */
 
-class Node
-{
+class Node{
 public:
     int key;
     
@@ -39,8 +20,7 @@ public:
     Node(int key);
 };
 
-class CircularDoublyLinkedList
-{
+class CircularDoublyLinkedList{
 public:
     Node *first;
     Node *minimum;
@@ -58,42 +38,35 @@ public:
     void print();
 };
 
-Node::Node()
-{
+Node::Node(){
     this -> key = 0;
     this -> left = NULL;
     this -> right = NULL;
 }
 
-Node::Node(int key)
-{
+Node::Node(int key){
     this -> key = key;
     this -> left = NULL;
     this -> right = NULL;
 }
 
-CircularDoublyLinkedList::CircularDoublyLinkedList()
-{
+CircularDoublyLinkedList::CircularDoublyLinkedList(){
     this -> first = NULL;
     this -> minimum = NULL;
 }
 
-bool CircularDoublyLinkedList::isEmpty()
-{
+bool CircularDoublyLinkedList::isEmpty(){
     return (this -> first == NULL);
 }
 
-void CircularDoublyLinkedList::insert(Node *x)
-{
-    if (isEmpty())
-    {
+void CircularDoublyLinkedList::insert(Node *x){
+    if (isEmpty()){
         this -> first = x;
         this -> minimum = x;
         x -> left = x;
         x -> right = x;
     }
-    else
-    {
+    else{
         Node *last = this -> first -> left;
         last -> right = x;
         x -> left = last;
@@ -103,65 +76,60 @@ void CircularDoublyLinkedList::insert(Node *x)
     }
 }
 
-Node* CircularDoublyLinkedList::getMinimum()
-{
+Node* CircularDoublyLinkedList::getMinimum(){
     return this -> minimum;
 }
 
-Node* CircularDoublyLinkedList::extractMinimum()
-{
-    if (isEmpty()) return NULL;
+Node* CircularDoublyLinkedList::extractMinimum(){
+    if(isEmpty())
+        return NULL;
     Node *ret = this -> minimum;
-    if (ret -> right == ret)
-    {
+    if(ret -> right == ret){
         this -> first = NULL;
         this -> minimum = NULL;
     }
-    else
-    {
+    else{
         Node *prev = ret -> left;
         Node *next = ret -> right;
         prev -> right = next;
         next -> left = prev;
-        if (ret == this -> first)
-        {
+        if(ret == this -> first)
             this -> first = next;
-        }
+
         this -> minimum = this -> first;
         Node *curr = this -> first -> right;
-        while (curr != this -> first)
-        {
-            if (curr -> key < this -> minimum -> key) this -> minimum = curr;
+        
+        while(curr != this -> first){
+            if(curr -> key < this -> minimum -> key)
+                this -> minimum = curr;
+            
             curr = curr -> right;
         }
     }
     return ret;
 }
 
-void CircularDoublyLinkedList::decreaseKey(Node *x, int newKey)
-{
+void CircularDoublyLinkedList::decreaseKey(Node *x, int newKey){
     x -> key = newKey;
-    if (x -> key < this -> minimum -> key) this -> minimum = x;
+    if(x -> key < this -> minimum -> key)
+        this -> minimum = x;
 }
 
-void CircularDoublyLinkedList::Delete(Node *x)
-{
-    if (this -> minimum == x) extractMinimum();
-    else
-    {
+void CircularDoublyLinkedList::Delete(Node *x){
+    if(this -> minimum == x)
+        extractMinimum();
+    else{
         Node *prev = x -> left;
         Node *next = x -> right;
         prev -> right = next;
         next -> left = prev;
-        if (x == this -> first)
-        {
+        
+        if(x == this -> first)
             this -> first = next;
-        }
     }
 }
 
-void CircularDoublyLinkedList::merge(CircularDoublyLinkedList *cdll)
-{
+void CircularDoublyLinkedList::merge(CircularDoublyLinkedList *cdll){
     /*
      Merging works by "clipping" the list to be merged before the first pointer
      and then inserting that entire list before the first pointer in the original list.
@@ -170,9 +138,9 @@ void CircularDoublyLinkedList::merge(CircularDoublyLinkedList *cdll)
      The merged list would look something like A <-> B <-> C <-> D <-> E <-> A
     */
     
-    if (cdll -> isEmpty()) return;
-    if (this -> isEmpty())
-    {
+    if(cdll -> isEmpty())
+        return;
+    if(this -> isEmpty()){
         this -> first = cdll -> first;
         this -> minimum = cdll -> minimum;
         return;
@@ -185,44 +153,47 @@ void CircularDoublyLinkedList::merge(CircularDoublyLinkedList *cdll)
     last1 -> right = first2;
     first2 -> left = last1;
     last2 -> right = first1;
-    if (cdll -> minimum -> key < this -> minimum -> key) this -> minimum = cdll -> minimum;
+    if(cdll->minimum->key < this->minimum->key)
+        this -> minimum = cdll -> minimum;
 }
 
-void CircularDoublyLinkedList::print()
-{
-    if (isEmpty()) { printf("\n"); return; }
-    else
-    {
-        if (this -> first == this -> minimum) printf("*%d*", this -> first -> key);
-        else printf("%d", this -> first -> key);
+void CircularDoublyLinkedList::print(){
+    if (isEmpty()) { printf("\n");
+        return; }
+    else{
+        if(this -> first == this -> minimum)
+            printf("*%d*", this -> first -> key);
+        else
+            printf("%d", this -> first -> key);
+
         Node *curr = this -> first;
-        do
-        {
+        do{
             curr = curr -> right;
-            if (this -> minimum == curr) printf(" <-> *%d*", curr -> key);
-            else printf(" <-> %d", curr -> key);
-        } while (curr != this -> first);
+            if(this -> minimum == curr)
+                printf(" <-> *%d*", curr -> key);
+            else
+                printf(" <-> %d", curr -> key);
+        }while(curr != this -> first);
+
         printf("\n");
     }
 }
 
-int main()
-{
+int main(){
     char response[55];
     
     printf("Do you want to write the results to file? (Y/N)\n");
-    while (true)
-    {
+    while (true){
         scanf("%s", response);
-        if (response[0] == 'Y' || response[0] == 'y') break;
-        else if (response[0] == 'N' || response[0] == 'n') break;
+        if(response[0] == 'Y' || response[0] == 'y')
+            break;
+        else if(response[0] == 'N' || response[0] == 'n')
+            break;
         printf("Incorrect character! You must input 'Y' or 'N'. Retry: \n");
     }
     
-    if (response[0] == 'Y' || response[0] == 'y')
-    {
+    if(response[0] == 'Y' || response[0] == 'y')
         freopen("/Users/PetarV/TestLogs/CDLL-Test.txt","w",stdout);
-    }
     
     time_t t = time(0);
     struct tm *now = localtime(&t);

@@ -21,6 +21,7 @@ int rng(int lim) {
 }
 
 ll mpow(ll base, ll exp); 
+bool chkSubseq(string, string);
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -31,28 +32,34 @@ int a[N];
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, m, dp[25][25], sol=0;
-	string a, b;
+	unsigned int i, j, n, m;
+	string s, s2, binary;
+	bool flag=true;
+	queue<string> numCr;
 
-	cin>>a;
-	cin>>b;
-	m=a.size();
-	n=b.size();
+	cin>>s;
+	n=stoi(s, 0, 2);
 
-	for(i=0; i<m; i++)
-		for(j=0; j<n; j++){
-			if(a[i]==b[j])
-				if(a[i-1]==b[j-1] && i-1>=0 && j-1>=0)
-					dp[i][j]=dp[i-1][j-1]+1;
-				else
-					dp[i][j]=1;
-			else
-				dp[i][j]=0;
-			
-			sol=max(sol, dp[i][j]);
+	if(s.find("0") != string::npos)
+		flag=false;
+
+	if(flag)
+		cout<<0<<endl;
+	else{
+		numCr.push("1");
+		while(true){
+			binary=numCr.front();
+			numCr.pop();
+
+			if(!chkSubseq(binary, s))
+				break;
+		
+			s2=binary;
+			numCr.push(binary.append("0"));
+			numCr.push(s2.append("1"));
 		}
-
-	cout<<m+n-2*sol<<endl;
+		cout<<binary<<endl;
+	}
 }
 
 int main(){
@@ -86,3 +93,13 @@ ll mpow(ll base, ll exp) {
 	return result;
 }
 
+bool chkSubseq(string binary, string s){
+	int j=0, i=0;
+	for(; i<s.size(); i++){
+		if(binary[j]==s[i])
+			j++;
+		if(j==binary.size())
+			return true;
+	}
+	return false;
+}

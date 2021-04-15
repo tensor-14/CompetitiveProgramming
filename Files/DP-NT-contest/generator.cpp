@@ -1,8 +1,8 @@
 #include<bits/stdc++.h> 
 using namespace std; 
 
-#define T 100000
-#define A 1000000000000
+#define T 100000	//10^5
+#define A 50
 #define K 5
 
 int main(){ 
@@ -10,12 +10,12 @@ int main(){
 
 	srand(time(NULL)); 
 	
-	printf("%d\n", T);
+//	printf("%d\n", T);
 	for(int i=1; i<=T; i++){ 
-		int k = 2 + rand() % K;
+		//int k = 2 + rand() % K;
 		long long int a=1 + rand() % A;
-		long long int b=1 + rand() % a;
-		printf("%lld %lld %d", a, b, k); 
+		//long long int b=1 + rand() % a;
+		printf("%lld", a); 
 		printf("\n"); 
 	} 
 	printf("\n");

@@ -25,34 +25,66 @@ ll mpow(ll base, ll exp);
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
 
-vector<int> g[N];
 int a[N];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, m, dp[25][25], sol=0;
-	string a, b;
+	ll i, j, n, m, k, u, v, d, totVal, binMsk, fnd;
+	cin>>n>>m>>k;
+	vector<ll> g(n+1);
+	for(i=0; i<n; i++)
+		cin>>g[i+1];
+	
+	vector<vector<pair<ll,ll>>> inpQuery(n+1), dp(n+1);
+	dp[0].push_back(make_pair(0,0));
+	vector<pair<ll,ll>> sol;
+	set<ll> cntSet, cntDisSet;
 
-	cin>>a;
-	cin>>b;
-	m=a.size();
-	n=b.size();
+	for(i=0; i<m; i++){
+    	cin>>u>>v>>d;
+		inpQuery[u].push_back(make_pair(i,d));
+		inpQuery[v].push_back(make_pair(i,d));
+	}
 
-	for(i=0; i<m; i++)
-		for(j=0; j<n; j++){
-			if(a[i]==b[j])
-				if(a[i-1]==b[j-1] && i-1>=0 && j-1>=0)
-					dp[i][j]=dp[i-1][j-1]+1;
-				else
-					dp[i][j]=1;
+	for(i=1; i<n+1; i++){
+		sol.clear();
+		sol.insert(sol.end(), dp[i-1].begin(), dp[i-1].end());
+		totVal=binMsk=0;
+		cntDisSet.clear();
+		for(j=i; j>0; j--){
+			totVal+=g[j];
+			binMsk^=(1LL<<j);
+			for(auto& [idx,w]:inpQuery[j]){		//change for G++<17
+				if(cntDisSet.count(idx))
+					totVal+=w;
+                else
+					cntDisSet.insert(idx);
+			}
+			if(j>1)
+				for(auto& [val,old_mask]:dp[j-2])	//change for G++<17
+					sol.push_back(make_pair(val+totVal,binMsk^old_mask));
 			else
-				dp[i][j]=0;
-			
-			sol=max(sol, dp[i][j]);
+				sol.push_back(make_pair(totVal,binMsk));
 		}
+        
+		sort(sol.begin(), sol.end());
+		reverse(sol.begin(), sol.end());
+		cntSet.clear();
+		fnd=0;
+		for(j=0; j<sol.size() && fnd<k; j++){
+			if(cntSet.count(sol[j].second))
+				continue;
+			
+			dp[i].push_back(sol[j]);
+			fnd++;
+			cntSet.insert(sol[j].second);
+		}
+	}
 
-	cout<<m+n-2*sol<<endl;
+	for(i=0; i<k; i++)
+		cout<<dp[n][i].first<<" ";
+	cout<<endl;
 }
 
 int main(){

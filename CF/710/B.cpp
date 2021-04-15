@@ -11,6 +11,8 @@ using namespace std;
 #define deb(x) cout << #x << "=" << x << endl
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
 #define PI 3.1415926535897932384626
+#define ll long long int
+#define endl "\n"
 
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 int rng(int lim) {
@@ -18,7 +20,7 @@ int rng(int lim) {
 	return uid(rang);
 }
 
-long long int mpow(int base, int exp); 
+ll mpow(ll base, ll exp); 
 
 const int mod = 1'000'000'007;
 const int N = 3e5, M = N;
@@ -26,8 +28,28 @@ const int N = 3e5, M = N;
 vector<int> g[N];
 int a[N];
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 void solve(){
-	int i, j, n, m;
+	ll i, j, n, k, cnt=0;
+	string s;
+
+	cin>>n>>k;
+	cin>>s;
+
+	i=s.find_first_of('*');
+	cnt++;
+
+	while(true){
+		j=min(n-1, i+k);
+		for(; i<j && s[j]=='.'; j--);
+		if(i==j)
+			break;
+		cnt++;
+		i=j;
+	}
+		
+	cout<<cnt<<endl;
 }
 
 int main(){
@@ -50,13 +72,14 @@ int main(){
 	return 0;
 }
 
-long long int mpow(long long base, long long exp) {
+ll mpow(ll base, ll exp) {
 	base %= mod;
-	long long int result = 1;
+	ll result = 1;
 	while (exp > 0) {
-		if (exp & 1) result = ((long long)result * base) % mod;
-		base = ((long long)base * base) % mod;
+		if (exp & 1) result = ((ll)result * base) % mod;
+		base = ((ll)base * base) % mod;
 		exp >>= 1;
 	}
 	return result;
 }
+

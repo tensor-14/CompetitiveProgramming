@@ -31,28 +31,75 @@ int a[N];
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void solve(){
-	ll i, j, n, m, dp[25][25], sol=0;
-	string a, b;
+	ll i, j, n, m, k, hor, sol=0, sm, mx, first_, last_, centre_, centrePos;
+	bool flag;
+	cin>>n>>m>>k;
+	n++;
+	m++;
+	mx=max(n, m);
 
-	cin>>a;
-	cin>>b;
-	m=a.size();
-	n=b.size();
+	vector<vector<double>> mt(n, vector<double>(m, 0));
 
-	for(i=0; i<m; i++)
-		for(j=0; j<n; j++){
-			if(a[i]==b[j])
-				if(a[i-1]==b[j-1] && i-1>=0 && j-1>=0)
-					dp[i][j]=dp[i-1][j-1]+1;
-				else
-					dp[i][j]=1;
-			else
-				dp[i][j]=0;
-			
-			sol=max(sol, dp[i][j]);
+	for(i=1; i<n; i++)
+		for(j=1; j<m; j++)
+			cin>>mt[i][j];
+
+	/*
+	for(i=1; i<n; i++){
+		sm=0;
+		for(j=0; j<m; j++){
+			mt[i][j]+=sm;
+			sm=mt[i][j];
 		}
+	}
 
-	cout<<m+n-2*sol<<endl;
+	for(j=0; j<m; j++){
+		sm=0;
+		for(i=0; i<n; i++){
+			mt[i][j]+=sm;
+			sm=mt[i][j];
+		}
+	}
+
+	for(l=0; l<mx; l++)
+		for(i=l; i<n; i++)
+			for(j=l; j<m; j++)
+				if((mt[i][j]+mt[i-l][j-l]-mt[i][j-l]-mt[i-l][j])/(l*l)>=k)
+					sol++;
+	*/
+
+	for(i=1; i<n; i++)
+		for(j=1; j<m; j++)
+			mt[i][j]+=mt[i][j-1];
+
+	for(j=1; j<m; j++)
+		for(i=1; i<n; i++)
+			mt[i][j]+=mt[i-1][j];
+
+	for(hor=1; hor<n; hor++){
+		for(i=1; i<n-hor+1; i++){
+			first_=1;
+			last_=m-hor;
+			flag=false;
+
+			while(first_<=last_){
+				centre_=(last_+first_)/2;
+				ll sm=mt[i+hor-1][centre_+hor-1]-mt[i+hor-1][centre_-1]-mt[i-1][centre_+hor-1]+mt[i-1][centre_-1];
+
+				if(sm>=k*hor*hor){
+					last_=centre_-1;
+					centrePos=centre_;
+					flag=true;
+				}
+				else
+					first_=centre_+1;
+			}
+			if(flag)
+				sol+=(m-hor-centrePos+1);
+		}
+	}
+
+	cout<<sol<<endl;
 }
 
 int main(){
@@ -85,4 +132,3 @@ ll mpow(ll base, ll exp) {
 	}
 	return result;
 }
-
