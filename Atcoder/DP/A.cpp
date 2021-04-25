@@ -43,7 +43,7 @@ void solve(){
 	for(i=0; i<n; i++)
 		for(int j : {i+1, i+2})
 			if(j<n)
-				dp[j]=min	(dp[j], dp[i] + abs(h[i]-h[j]));
+				dp[j]=min(dp[j], dp[i] + abs(h[i]-h[j]));
 	cout<<dp[n-1]<<"\n";
 }
 
