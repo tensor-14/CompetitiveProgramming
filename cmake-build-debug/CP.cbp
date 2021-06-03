@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CP"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/tensor/Desktop/CP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/tensor/Desktop/CP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/tensor/Desktop/CP/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CP">
+				<Option output="/home/tensor/Desktop/CP/cmake-build-debug/CP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tensor/Desktop/CP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 CP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CP/fast">
+				<Option output="/home/tensor/Desktop/CP/cmake-build-debug/CP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tensor/Desktop/CP/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 CP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tensor/Desktop/CP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/189/ASlot.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/189/BAlcoholic.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/189/CMandarinOrange.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/196/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/196/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/196/C.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/DP/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/DP/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC200/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC200/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC200/C.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC200/D.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC200/E.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC202/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC202/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/ABC202/C.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/digitalGraffiti.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/powerSocket.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/qualificationSimulator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/rally.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/removeIt.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Atcoder/practice/vanishingPitch.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/COINS.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/EMP.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/boolgame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/chaosemp.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/kavgmat.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/mexstr.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/mexstr2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/sdice.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/aprLong/treeperm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/billrd.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/decodeit.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/divThree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/evenpsum.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/fairelct.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/atwnt.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/checks.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/checks2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/f_sumXOR.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/frogs.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/hdivisr.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/maxfun.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/meet.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/mulgame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/prigame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/subsets.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/sumxor.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/sumxor2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/sushsumxor2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/teamname.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/febLong/test1.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/janCookoff/manysums.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/janCookoff/passwd.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/janCookoff/ptuples.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/lue.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/colglf4.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/consadd.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/densegrp.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/irstxor.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/maxtopo.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/paparazi.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/spacearr.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/wireless-electricity/checker_public.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/wireless-electricity/generator_public.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marLong/wireless-electricity/wirelesselectricity.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/marbles.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/cl2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/iss.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/kkling.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/modeq.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/tctctoe.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/thouses.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/vpath.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/mayLong/xorequal.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/orand.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/posprefs.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/practice/cnote.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/practice/lecandy.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/practice/salary.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/vaccine1.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CC/vaccine2.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/696/arrayDestruction.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/696/cleaning.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/696/diffDiv.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/696/puzzleFromTheFuture.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/697/ballInBerland.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/697/cleaningThePhone.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/697/nyn.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/697/oddDivisor.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/698/nezzarColorfulballs.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/704/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/704/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/710/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/710/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/710/C.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/710/D.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/710/E.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/717/A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/717/B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/DP-practice/hitTheLottery.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/binarySearch/1A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/binarySearch/1B.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/binarySearch/1C.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/binarySearch/1D.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/binarySearch/2A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/graph/connectedComponents.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/EDU/graph/representation.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/579A.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/AreplacingElements.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/BstringLCM.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/IwannaBeTheGuy.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/antiqueItems.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/antonLetters.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/applemanEasyTask.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/arrivalOfGeneral.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/bearRaspberry.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/beautiful-matrix.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/beautifulYear.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/berSUBall.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/bit.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/borze.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/bovine-dilemma.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/cakeminator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/caps-lock.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/chat-room.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/cheapTravel.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/chessCheater.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/choosingTeams.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/domino.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/dragons.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/dreamoonStairs.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/dscj.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/dubstep.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/evenArray.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/evenOdds.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/expression.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/favourite-sequence.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/fedorGame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/flippingGame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/foxSnake.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/gameWithSticks.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/games.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/helpfulMath.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/ilyaBank.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/iqTest.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/laptops.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/last-minute-enhancement.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/longWords.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/lucky-division.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/lunchRush.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/matrixGame.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/newYearHurry.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/newyearcandles.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/newyeartrans.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/next-round.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/num_seq.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/olesya-rodion.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/pashmakGarden.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/presents.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/pstrings.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/puzzles.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/queueSchool.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/randomTeams.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/rising-bacteria.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/road-to-zero.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/segmentsOwnPoints.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/shortSubstrings.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/sortTheArray.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/special_permutation.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/string-task.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/teamOlympiad.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/teamf.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/theatre-square.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/twins.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/unique_bid_auction.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/vanyaAndLanterns.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/watermelon.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/whiteSheet.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/worms.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/xringroad.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/xxxxx.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2A/young-physicist.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2B/currency.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2B/lecture.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2B/pins.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2B/sortShift.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/practice/Div2B/tprimes.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CF/template.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/diceCombination.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/1-weird-algo.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/2-missing-number.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/3-repetitions.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/4-increasing-array.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/5-permutations.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/bitStrings.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/numberSpiral.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/trailingZeros.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/twoKnights.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CSES/introProb/twoSets.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Compression Algorithms/Huffman Coding.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Binary Indexed Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Binary Search Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Binomial Heap.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Bit Queue.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Circular Doubly-Linked List.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Disjoint Set Union.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Fibonacci Heap.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Link-cut Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Pairing Heap.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Priority Queue.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Proto-vEB Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Segment Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Splay Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Suffix Array + LCP Array.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Suffix Automaton.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/Trie.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/XOR Linked List.c">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Data Structures/van Emde Boas Tree.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/0-1 Knapsack.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Longest Common Subsequence.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Matrix Chain Multiplication.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Needleman-Wunsch.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Nussinov Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Segmented Least Squares.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Dynamic Programming/Unbounded Knapsack.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Geometric Algorithms/Graham Scan.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Geometric Algorithms/Point in Convex Polygon.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Geometric Algorithms/Segment Intersection.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Bellman-Ford Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Breadth-First Search.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Connected Components.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Cycle Detection.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Depth-First Search.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Dijkstra&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Dinic&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Edmonds-Karp Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Floyd-Warshall Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Ford-Fulkerson Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Heavy-Light Decomposition.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Kosaraju&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Kruskal&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Prim&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Tarjan&apos;s SCC Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Graph Algorithms/Topological Sorting.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Greedy Algorithms/First-Fit Bin Packing.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Greedy Algorithms/Interval Scheduling.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Euclidean Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Exponentiation by Squaring.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Extended Euclidean Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Matrix Exponentiation.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Matrix Multiplication.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/PageRank.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Pascal&apos;s Triangle.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Sieve of Eratosthenes.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Simplex Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Mathematical Algorithms/Strassen&apos;s Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Miscellaneous/Fast Input (Thanks to Ermin Hodzic).cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Recursion, Backtracking etc./K-Combinations.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Recursion, Backtracking etc./Permutations.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Recursion, Backtracking etc./Power Set.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Searching Algorithms/Binary Search.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Searching Algorithms/Quickselect.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Searching Algorithms/Ternary Search.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Bitonic Sorter.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Bubble Sort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Counting Sort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Heapsort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Insertion Sort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Merge Sort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Quicksort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/Sorting Algorithms/Selection Sort.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/String Algorithms/Knuth-Morris-Pratt.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/DSA/String Algorithms/Z Algorithm.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/DP-NT-contest/DP-NT.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/DP-NT-contest/generator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/DP-NT-contest/test/chef_award.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/DP-NT-contest/test/cvl.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/DP-NT-contest/test/invrsion.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/GRUNDY-contest/GRUNDY_.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/GRUNDY-contest/generatorGRUNDY.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/aaAA-revise-check.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/ar-Zeckendorf.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/ar-fibo-dp.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/ar-fibo-rec.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/ar-itro-numth.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/ar-matexp-fibo.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/gen.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/generatorMAKEDIV.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/Files/solMAKEDIV.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/stl.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/template.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/cvl/generator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/cvl/sol.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/invrsion/generator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/invrsion/sol.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/traveljo/generator.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/test/traveljo/sol.cpp">
+			<Option target="CP"/>
+		</Unit>
+		<Unit filename="/home/tensor/Desktop/CP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

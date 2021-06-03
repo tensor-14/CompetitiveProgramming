@@ -33,17 +33,24 @@ int a[N];
 void solve(){
 	ll i, j, n, m=0;
 	cin>>n;
-	vector<ll> a(n), b(n), c(n);
-	for(auto& x:a)
+	vector<ll> a(n), b(n), c(n), cnt(n);
+	for(auto& x:a){
 		cin>>x;
-	for(auto& x:b)
+		x-=1;
+	}
+	for(auto& x:b){
 		cin>>x;
+		x-=1;
+	}
 	for(auto& x:c){
 		cin>>x;
-		for(i=0; i<n; i++)
-			if(a[i]==b[x-1])
-				m++;
+		x-=1;
 	}
+	for(i=0; i<n; i++)
+		cnt[b[c[i]]]+=1;
+	for(i=0; i<n; i++)
+		m+=cnt[a[i]];
+
 	cout<<m<<endl;
 }
 

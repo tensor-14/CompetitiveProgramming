@@ -2,9 +2,9 @@
 #pragma GCC optimization("unroll-loops")
 #include<bits/stdc++.h>
 using namespace std;
-#define si(x) scanf("%d",&x)
-#define sl(x) scanf("%lld",&x)
-#define ss(s) scanf("%s",s)
+#define si(x) scanf("%d", &x)
+#define sl(x) scanf("%lld", &x)
+#define ss(s) scanf("%s", s)
 #define pi(x) printf("%d\n",x)
 #define pl(x) printf("%lld\n",x)
 #define ps(s) printf("%s\n",s)

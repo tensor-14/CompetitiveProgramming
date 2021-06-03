@@ -1,0 +1,3 @@
+/home/tensor/Desktop/CP/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tensor/Desktop/CP/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tensor/Desktop/CP/cmake-build-debug/CMakeFiles/CP.dir
