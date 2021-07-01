@@ -1,8 +1,3 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Permutations
-*/
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -24,30 +19,24 @@ int niz[100];
 bool inPerm[100];
 int currPerm[100];
 
-//Algoritam koji generise sve permutacije datog niza
-//Slozenost: O(n!)
+//Time Complexity: O(n!)
 
-void generatePermutations(int pos)
-{ 
-    if (pos == n)
-    {
-        for (int i=0;i<n;i++) printf("%d ",currPerm[i]);
-        printf("\n");
+void generatePermutations(int pos){ 
+    if (pos == n){
+        for (int i=0;i<n;i++) 
+            cout<<currPerm[i];
+        cout<<"\n";
     }
     for (int i=0;i<n;i++)
-    {
-        if (!inPerm[i])
-        {
+        if (!inPerm[i]){
             currPerm[pos] = niz[i];
             inPerm[i] = true;
             generatePermutations(pos+1);
             inPerm[i] = false;
         }
-    }
 }
 
-int main()
-{
+int main(){
     n = 3;
     niz[0] = 1;
     niz[1] = 2;

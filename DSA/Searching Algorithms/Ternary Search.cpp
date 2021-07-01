@@ -1,8 +1,3 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Ternary Search
-*/
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -19,25 +14,26 @@
 using namespace std;
 typedef long long lld;
 
-//Ternarna pretraga maksimuma/minimuma funkcije koja menja monotonost najviše jednom
-//Slozenost: O(log n)
+//Time Complexity: O(log n)
 
-inline double f(double x)
-{
+inline double f(double x){
     return x*x + x - 1;
 }
 
-inline double ter_search(double left, double right)
-{
-    if (right - left < EPS) return (left+right)/2.0;
+inline double ter_search(double left, double right){
+    if (right - left < EPS)
+        return (left+right)/2.0;
+    
     double leftThird = (2.0*left + right)/3.0;
     double rightThird = (left + 2.0*right)/3.0;
-    if (f(leftThird) > f(rightThird)) return ter_search(leftThird, right);
-    else return ter_search(left, rightThird);
+    
+    if (f(leftThird) > f(rightThird))
+        return ter_search(leftThird, right);
+    else
+        return ter_search(left, rightThird);
 }
 
-int main()
-{
+int main(){
     printf("%.6lf\n",ter_search(-5.0, 1.0));
     return 0;
 }

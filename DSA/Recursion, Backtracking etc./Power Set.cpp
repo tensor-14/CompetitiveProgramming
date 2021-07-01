@@ -1,8 +1,3 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Power Set
-*/
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -19,19 +14,17 @@
 using namespace std;
 typedef long long lld;
 
-//Metoda koja generise partitivni skup nekog skupa
-//Slozenost: O(2^n)
+//Time complexity: O(2^n)
 
 int n;
 int skup[100];
 bool inSet[100];
 
-void powerSet(int pos)
-{
-    if (pos==n)
-    {
-        for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
-        printf("\n");
+void powerSet(int pos){
+    if (pos==n){
+        for (int i=0;i<n;i++) if (inSet[i])
+            cout<<skup[i];
+        cout<<"\n";
         return;
     }
     inSet[pos] = false;
@@ -40,8 +33,7 @@ void powerSet(int pos)
     powerSet(pos+1);
 }
 
-int main()
-{
+int main(){
     n = 3;
     skup[0] = 1;
     skup[1] = 2;
