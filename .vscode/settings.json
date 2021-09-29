@@ -2,6 +2,8 @@
     "files.associations": {
         "iostream": "cpp",
         "chrono": "cpp",
-        "segTreeSumCF.C": "cpp"
+        "segTreeSumCF.C": "cpp",
+        "segTreeMinCF.C": "cpp",
+        "segTreeMinCountCF.C": "cpp"
     }
 }
